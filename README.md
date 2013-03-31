@@ -16,9 +16,9 @@ using Ladensia Shop System.
 
 The following Folders must be writeable:
 
-app/cache
-app/logs
-web/uploads
+- app/cache
+- app/logs
+- web/uploads
 
 If you don't have installed Composer read the Instructions on this Site:
 
