@@ -51,4 +51,8 @@ https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/comm
 - php apc extension
 - php mod rewrite extension
 - php gd2 extension
+<<<<<<< HEAD
 - php imagick extension
+=======
+- php imagick extension
+>>>>>>> 1eec3234adf5bebea17cb48bc62775ad84c5221d
