@@ -62,6 +62,8 @@ https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/comm
 3. Images - Shop Frontend
 -------------------------
 
+Homepage
 ![](http://ladensia.de/img/demo1.png)
 
+Product Details
 ![](http://ladensia.de/img/demo5.png)
