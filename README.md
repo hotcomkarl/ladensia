@@ -58,3 +58,10 @@ https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/comm
 - php mod rewrite extension
 - php gd2 extension
 - php imagick extension
+
+3. Images - Shop Frontend
+-------------------------
+
+![](http://ladensia.de/demo1.png)
+
+![](http://ladensia.de/demo5.png)
