@@ -1,0 +1,3 @@
+LadensiaCoreBundle_homepage:
+    pattern:  /test/
+    defaults: { _controller: LadensiaCoreBundle:XmlApi:index }

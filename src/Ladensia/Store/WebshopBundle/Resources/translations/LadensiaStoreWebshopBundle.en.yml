@@ -1,0 +1,27 @@
+# Shopping
+shopping:
+    cart: Cart
+    account: Account
+
+product:
+    featured: Featured Products
+    price: Price
+    details: Details
+    buy: Buy now
+    new: New Products
+    all_categories: Alle Categories
+    
+news:
+    category: Category
+    heading: News
+
+law:
+    copyright: All rights reserved.
+    
+clients:
+    login: Client Login
+    username: Username
+    password: Password
+
+sites:
+    home: Home

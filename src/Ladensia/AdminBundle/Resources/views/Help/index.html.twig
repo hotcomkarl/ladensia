@@ -1,0 +1,39 @@
+{% extends 'LadensiaAdminBundle:Default:index.html.twig' %}
+
+{% block content %}
+<section class="main-section grid_10"> 
+                    {% block sub_nav %}
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Hilfebereich</h2></header>
+                        <section class="accordion clearfix">
+                            <section style="display:block">
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:helpMenu') }}
+                            </section>
+
+                        </section>
+                    </div>
+                    {% endblock %}
+
+
+                    {% block sale_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                    <h2>Hilfe</h2>
+                            </header>
+                            <section class="clearfix">
+
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+ 
+                            </section>
+                        </div>
+                    </div>
+
+                    {% endblock %}
+
+
+</section> 
+<div class="clear"></div>
+{% endblock %}

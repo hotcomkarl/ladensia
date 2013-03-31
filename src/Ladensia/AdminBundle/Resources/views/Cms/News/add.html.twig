@@ -1,0 +1,40 @@
+{% extends 'LadensiaAdminBundle:Cms:index.html.twig' %}
+
+
+
+                    {% block cms_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a class="modalInput button button-blue" href="{{ path('LadensiaAdminBundle_news') }}">Zurück zur Übersicht</a></li>
+
+                                </ul>
+                                <h2>Neues Posting veröffentlichen</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form_editor">
+                                    {{ form_errors(form) }}
+                                        
+                                    <div class="clearfix">
+                                        {{ form_label(form.heading) }}
+                                        {{ form_errors(form.heading) }}
+                                        {{ form_widget(form.heading) }}
+                                    </div>
+                              
+                                    <div class="clearfix editor">
+                                        {{ form_label(form.details) }}
+                                        {{ form_errors(form.details) }}
+                                        {{ form_widget(form.details) }}
+                                    </div>
+
+                                    {{ form_rest(form) }}
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray" style="float: none">Posting veröffentlichen</button>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+
+                    {% endblock %}

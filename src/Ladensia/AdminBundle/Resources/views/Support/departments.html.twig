@@ -1,0 +1,33 @@
+{% extends 'LadensiaAdminBundle:Support:index.html.twig' %}
+
+                    {% block support_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>Support Abteilungen</h2>
+                                
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form_editor">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.name, 'Abteilung') }}
+                                        {{ form_errors(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                    </div>
+
+                                    <div class="clearfix">
+                                        {{ form_label(form.description, 'Beschreibung') }}
+                                        {{ form_errors(form.description) }}
+                                        {{ form_widget(form.description) }}
+                                    </div>
+
+                                    {{ form_rest(form) }}
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray" style="float: none">Absenden</button>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                    {% endblock %}

@@ -1,0 +1,252 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('/css/jquery-ui.custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/bundles/ladensiastorewebshop/css/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/bundles/ladensiastorewebshop/css/galleriffic.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/bundles/ladensiastorewebshop/css/core-ui-select.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/bundles/ladensiastorewebshop/css/jquery.scrollpane.css') }}" type="text/css" rel="stylesheet" />
+    <!--[if lt IE 8]>
+        <link href="{{ asset('/bundles/ladensiastorewebshop/css/ie.css') }}" type="text/css" rel="stylesheet" />
+    <![endif]-->
+    {% block style %}{% endblock %}
+{% endblock %}
+
+
+{% block body %}
+    <div id="info_box">
+        <div class="social">
+            <a href=""><img src="{{ asset('/images/icons/social/facebook.png') }}" alt="facebook" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/twitter.png') }}" alt="twitter" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/rss.png') }}" alt="rss" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/google.png') }}" alt="google" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/yahoo.png') }}" alt="yahoo" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/delicious.png') }}" alt="yahoo" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/vimeo.png') }}" alt="yahoo" /></a>
+            <a href=""><img src="{{ asset('/images/icons/social/linkedin.png') }}" alt="yahoo" /></a>
+        </div>
+            
+        <div class="cart">
+            <span><a href=""><img src="{{ asset('/images/icons/padlock_closed.png') }}" alt="yahoo" /> {{ 'shopping.account'|trans({}, 'LadensiaStoreWebshopBundle') }}</a></span>
+            <span><a href=""><img src="{{ asset('/images/icons/basket_black.png') }}" alt="yahoo" /> {{ 'shopping.cart'|trans({}, 'LadensiaStoreWebshopBundle') }}</a> 19,00{{ 'currency'|trans({}, 'LadensiaStoreWebshopBundle') }}</span>
+        </div>
+    </div>
+    <div id="main">
+        {% block header %}
+	<div id="header">
+		<a href="{{ path('LadensiaStoreWebshopBundle_homepage') }}"><span class="logo"></span></a>
+                <br />
+		<div id="nav" style="position: relative;">
+                        <ul id="cat_nav">
+                            <li class="first"><a href="{{ path('LadensiaStoreWebshopBundle_homepage')}}">{{ 'sites.home'|trans({}, 'LadensiaStoreWebshopBundle') }}</a></li>
+                            {% for category in categories %}
+                                <li><a href="{{ path('LadensiaStoreProductBundle_list', {'criteria': category.id})}}">{{ category.name }}</a></li>
+                            {% endfor %}
+                            <li><a href="{{ path('LadensiaStoreProductBundle_list_categories')}}">{{ 'product.all_categories'|trans({}, 'LadensiaStoreWebshopBundle') }}</a></li>
+                        </ul>
+			
+                        <a href=""><span class="cat_icon"><img src="{{ asset('/images/icons/category.png') }}" alt="Kategorien" /></span></a>
+                        {{ knp_menu_render('LadensiaStoreWebshopBundle:Builder:mainMenu') }}
+		</div>
+	</div>
+        {% endblock %}
+
+        {% block slider %}
+            <div id="slider">
+            <div class="pricing_box">
+            {{ 'product.price'|trans({}, 'LadensiaStoreWebshopBundle') }}: <span>188,95 {{ 'currency'|trans({}, 'LadensiaStoreWebshopBundle') }}</span>
+            </div>
+                <div class="left_box">
+                    <h1>RADEON 9600XT</h1>
+                    <h3>Gönnen Sie sich eine faszinierende Grafik auf Ihrem PC.</h3>
+                    <p>Lorem ipsum dolor sit amet dei. Lorem de si etables de wus...</p>
+
+                    <img src="{{ asset('/bundles/ladensiastorewebshop/images/slide_trenner.gif') }}" alt="divider" class="slide_divider" />
+                </div>
+                <div class="clr"></div>
+                
+                <div id="thumbs" class="navigation">
+                    <ul class="thumbs noscript product_thumbs">
+                        <li>
+                            <a class="thumb" href="{{ asset('/bundles/ladensiastorewebshop/images/radeon_pic_big.png') }}" title="your image title">
+                                <img src="{{ asset('/bundles/ladensiastorewebshop/images/radeon_small.gif') }}" alt="divider" />
+                            </a>
+                            <div class="caption">
+
+                            </div>
+                        </li>
+                        <li>
+                            <a class="thumb" href="{{ asset('/bundles/ladensiastorewebshop/images/radeon_pic_big.png') }}" title="your image title">
+                                <img src="{{ asset('/bundles/ladensiastorewebshop/images/radeon_card_small.gif') }}" alt="divider" />
+                            </a>
+                            <div class="caption">
+
+                            </div>
+                        </li>
+                        <li>
+                            <a class="thumb" href="{{ asset('/bundles/ladensiastorewebshop/images/radeon_pic_big.png') }}" title="your image title">
+                                <img src="{{ asset('/bundles/ladensiastorewebshop/images/radeon_small.gif') }}" alt="divider" />
+                            </a>
+                            <div class="caption">
+
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div id="gallery" class="big_image content">
+ 
+                        <div class="slideshow-container">
+                                <div id="loading" class="loader"></div>
+                                <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container"></div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var gallerific = 'set';
+            </script>
+            <div class="clr"></div>
+            <h2 class="grey normal f18">{{ 'product.featured'|trans({}, 'LadensiaStoreWebshopBundle') }}</h2>
+            <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+            {% endblock %}
+         
+        {% block right_column %}
+        <div class="right_column">
+            
+
+            <div class="products">
+                <ul>
+                {% if products %}
+                    {% for product in products %}
+                    <li class="relative">
+                        <img src="/uploads/thumbnails/{{ product.image }}" alt="{{ product.name }}" class="product_pic" />
+                        <div class="absolute_buy">
+                            <h3>{{ product.name }}</h3>
+                            <p class="grey">{{ product.featuredDescription|raw }}
+                                <a href="{{ path('LadensiaStoreCartBundle_show_cart', {'productId' : product.id}) }}"></a>
+                            </p>
+                            {# <p><button class="flt_right button_buy" value="{{ product.id }}"></button></p> #}
+                            <p class="buy"><span class="price">{{ product.price }}{{ 'currency'|trans({}, 'LadensiaStoreWebshopBundle') }}</span>                      
+                            {# <a href="{{ path('LadensiaStoreProductBundle_product_detail', { 'product_uuid' : product.uuid }) }}"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_orange2.gif') }}" alt="arrow" /> Details</a> #}
+                            <span class="flt_right button_buy">
+                                <a href="{{ path('LadensiaStoreProductBundle_product_detail', { 'product_uuid' : product.uuid }) }}" class="flt_left"> {{ 'product.details'|trans({}, 'LadensiaStoreWebshopBundle') }}</a>
+                                <a href="{{ path('LadensiaStoreCartBundle_show_cart', {'productId' : product.id}) }}" class="flt_right" style="margin-right: 8px;"> {{ 'product.buy'|trans({}, 'LadensiaStoreWebshopBundle') }}</a>
+                            </span>
+                            </p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                {% endif %}
+                </ul>
+                <div class="clr"></div>
+            </div> 
+        </div>
+       
+        <div id="news">
+            <h2 class="grey normal f18">{{ 'news.heading'|trans({}, 'LadensiaStoreWebshopBundle') }}</h2>
+            <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider_short.png') }}" alt="divider" />
+            {% if news %}   
+            {% for posting in news%}
+                <h3 class="normal f16 m0" style="width: 100%">{{ posting.heading }}</h3>
+                <p class="news_content_short">
+                    {# {{ 'news.category'|trans({}, 'LadensiaStoreWebshopBundle') }}: Allgmein |#} {{ 'news.createdAt'|trans({}, 'LadensiaStoreWebshopBundle') }} {{ posting.createdAt }} 
+                </p>
+                <p>
+                {{ posting.detailsShort | raw }} <a href="" class="grey">{{ 'news.more'|trans({}, 'LadensiaStoreWebshopBundle') }}</a>
+                </p>
+            {% endfor %}
+            {% else %}
+                <br /><br /><br />{{ 'news.no'|trans({}, 'LadensiaStoreWebshopBundle') }}
+            {% endif %}
+        </div>
+        
+        {% if newProducts is defined %}
+        <div id="product_box_small">
+            <h3>{{ 'product.new'|trans({}, 'LadensiaStoreWebshopBundle') }}</h3>       
+            <ul>
+                {% for product in newProducts %}
+                <li>
+                    <a href="{{ path('LadensiaStoreProductBundle_product_detail', { 'product_uuid' : product.uuid }) }}">
+                        <span class="flt_left">
+                            <span class="h5">{{ product.name }}</span>
+                            <span>{{ product.price}}{{ 'currency'|trans({}, 'LadensiaStoreWebshopBundle') }}</span>
+                        </span>
+                        <span class="product_pic_bg"><img src="/uploads/thumbnails/{{ product.image }}" alt="{{ product.name }}" class="image" /></span>
+                        <img src="{{ asset('/bundles/ladensiastorewebshop/images/divider_product_box.png') }}" alt="Product Divider" class="product_divider" />
+                        <span class="clr"></span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+            
+        <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+        {% endblock %}
+
+    
+    <div class="clr"></div>
+
+    <div id="footer">
+        <div class="footer_container">
+        <h3>Kunden Service</h3>
+            {{ knp_menu_render('LadensiaStoreWebshopBundle:Builder:footer1Menu') }}
+        </div>
+
+        <div class="footer_container">
+        <h3>Rechtliches</h3>
+            {{ knp_menu_render('LadensiaStoreWebshopBundle:Builder:footer1Menu') }}
+        </div>
+
+        <div class="footer_container">
+        <h3>Unternehmensseiten</h3>
+            {{ knp_menu_render('LadensiaStoreWebshopBundle:Builder:footer1Menu') }}
+        </div>
+
+        <div class="footer_container">
+        </div>
+    <div class="clr"></div>
+    </div>
+
+    <div class="copyright">
+        &copy; 2012 Ladensia Demo Shop. {{ 'law.copyright'|trans({}, 'LadensiaStoreWebshopBundle') }}
+    </div>
+    
+    <div id="dialog-login" title="{{ 'clients.login'|trans({}, 'LadensiaStoreWebshopBundle') }}" style="display: none;">
+            <p>{{ 'clients.username'|trans({}, 'LadensiaStoreWebshopBundle') }} <input type="text" /></p>
+            <p>{{ 'clients.password'|trans({}, 'LadensiaStoreWebshopBundle') }} <input type="text" /></p>
+    </div>
+</div> {# main end #}
+{% endblock %}
+
+
+
+
+{% block javascripts %}
+    <script src="{{ asset('/js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.core.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ asset('/js/jquery.ui.widget.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.tabs.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.accordion.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.slider.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.effects.blind.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.button.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.mouse.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.draggable.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.position.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.resizable.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.dialog.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/autocolumn.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.core-ui-select.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.mousewheel.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.scrollpane.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.galleriffic.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.history.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/jquery.opacityrollover.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/ladensiastorewebshop/js/custom.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+            
+    </script>
+{% endblock %}

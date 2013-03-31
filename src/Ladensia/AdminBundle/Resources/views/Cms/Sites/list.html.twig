@@ -1,0 +1,63 @@
+{% extends 'LadensiaAdminBundle:Cms:index.html.twig' %}
+
+                    {% block cms_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                {# <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a href="{{ path('LadensiaAdminBundle_add_site') }}" class="button button-gray no-text"><span class="add"></span></a></li>
+                                </ul> #}
+                                <h2>Zusatzseiten</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Überschrift</th>
+                                            <th>Letztes Update</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Überschrift</th>
+                                            <th>Letztes Update</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if sites %}
+                                        {% for site in sites %}
+                                        <tr id="{{ site.id }}">
+                                                <td>{{ site.title }}</td>
+                                                <td>{{ site.heading }}</td>
+                                                <td>{{ site.createdAt }}</td>
+                                                <td><a href="#" class="confirm-message" onclick="setSiteId('{{ site.id }}')"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href="{{path('LadensiaAdminBundle_site_modify', {'siteId': site.id }) }}"><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="7" align="center">Keine Seiten vorhanden</td>
+                                        </tr>
+                                    {% endif %} 
+                                    </tbody>
+                                    
+                                </table>
+                                <div id="dialog-confirm" title="Seite löschen?" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Die Seite wird dauerhaft gelöscht. Sind Sie sicher?</p>
+                                </div>
+
+                                <div id="dialog-success" title="Seite gelöscht" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 20px 0;"></span>Die Seite wurde erfolgreich gelöscht.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    {% endblock %}

@@ -1,0 +1,7 @@
+LadensiaStoreCartBundle_homepage:
+    pattern:  /smoe
+    defaults: { _controller: LadensiaStoreCartBundle:Default:index }
+
+LadensiaStoreCartBundle_show_cart:
+    pattern:  /cart/{productId}/
+    defaults: { _controller: LadensiaStoreCartBundle:Default:addToCart, page: 0 }

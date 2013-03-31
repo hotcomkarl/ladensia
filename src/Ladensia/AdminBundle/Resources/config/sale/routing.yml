@@ -1,0 +1,4 @@
+#sale main page
+LadensiaAdminBundle_sale:
+    pattern:  /sale
+    defaults: { _controller: LadensiaAdminBundle:Sale\Sale:index }

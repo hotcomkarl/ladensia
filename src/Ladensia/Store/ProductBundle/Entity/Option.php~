@@ -1,0 +1,38 @@
+<?php
+namespace Ladensia\Store\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="option")
+ */
+class Option 
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $display;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $type;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $value;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $upcharge;
+}

@@ -1,0 +1,25 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block categories %}{% endblock %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    <div class="cat_list">
+        <h1 class="newproduct_heading" style="border-bottom: 1px solid #f4f4f4; padding-bottom: 10px;">Alle Kategorien<br></h1>
+        <div class="wide">
+            <ul class="category_list">              
+                {% for category in categories %}
+                <li><img src="{{ asset('bundles/ladensiastorewebshop/images/arrow_grey_small.gif') }}" alt="arrow" /><a href="{{ path('LadensiaStoreProductBundle_list', { 'criteria' : category.id }) }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+</div>
+
+<script type="text/javascript">
+    var gallerific = '';
+</script>
+{% endblock %}

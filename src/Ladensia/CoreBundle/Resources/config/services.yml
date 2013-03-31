@@ -1,0 +1,7 @@
+parameters:
+#    ladensia_core.example.class: Ladensia\CoreBundle\Example
+
+services:
+#    ladensia_core.example:
+#        class: %ladensia_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

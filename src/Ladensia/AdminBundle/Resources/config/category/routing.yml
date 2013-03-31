@@ -1,0 +1,11 @@
+LadensiaAdminBundle_category:
+    pattern:  /cat
+    defaults: { _controller: LadensiaAdminBundle:Category\Category:index }
+
+LadensiaAdminBundle_cat_del:
+    pattern:  /cat_del/{cat_id}/
+    defaults: { _controller: LadensiaAdminBundle:Category\Category:deleteCategory }
+
+LadensiaAdminBundle_cat_modify:
+    pattern:  /cat/{cat_id}/
+    defaults: { _controller: LadensiaAdminBundle:Category\Category:modify }

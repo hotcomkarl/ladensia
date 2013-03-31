@@ -1,0 +1,62 @@
+<?php
+
+namespace Ladensia\Store\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="asset")
+ */
+class Asset 
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $label;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $priority;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $fileName;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $height;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $width;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $mime;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $type;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $product;
+
+}

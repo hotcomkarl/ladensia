@@ -1,0 +1,13 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block right_column %}
+<div class="right_column">
+    <div id="product_box">
+        <iframe scrolling="no" width="500" height="440"  frameborder="0" src="https://epi.expercash.net/epi_popup2.php?popupId={{popupId}}&amount={{amount}}&paymentMethod={{paymentMethod}}&returnUrl={{returnUrl}}&errorUrl={{errorUrl}}&cssUrl={{cssUrl}}&profile={{profile}}&currency={{currency}}&jobId={{jobId}}&popupKey={{popupKey}}&functionId={{functionId}}&jobId={{jobId}}&transactionId={{transactionId}}">
+        </iframe> 
+    </div> {# end product box #}
+</div> {# end right column #}
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    ladensia_webshop.example.class: Ladensia\WebshopBundle\Example
+
+services:
+#    ladensia_webshop.example:
+#        class: %ladensia_webshop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

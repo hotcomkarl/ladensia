@@ -1,0 +1,100 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+        <h2 class="h2">Warenkorb</h2>
+        <form action="/webshop/cart.php?action=update" method="post" name="frmCart" id="frmCart">
+            <table cellpadding="5" class="entry_table">
+                <thead>
+                    <tr class="padding10"> 
+                        <th>Artikel</th>
+                        <th>Einzelpreis</th>
+                        <th width="109">Anzahl</th>
+                        <th>Gesamt</th>
+                        <th width="100">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                {% if products %}
+                        {% for id, product in products %}
+                            {% for prod in product %}
+                            <tr class="content"> 
+                                <td>
+                                    <a href="{{ path('LadensiaStoreProductBundle_product_detail', {'product_uuid' : prod.uuid }) }}" class="pic"><img src="/uploads/thumbnails/{{ prod.thumbnail }}" alt="{{ prod.name }}" height="55" /></a>
+                                    <a href="{{ path('LadensiaStoreProductBundle_product_detail', {'product_uuid' : prod.uuid }) }}" class="heading">{{ prod.name }}</a>
+                                    <span class="available clear"><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /></span>
+                                </td>
+                                <td class="center">{{ prod.price }}€</td>
+                                <td>
+                                    <img src="{{ asset('/images/icons/arrow_left32.png') }}" alt="Artikel löschen" style="float: left; height: 20px; margin: 0; cursor: pointer;" /><input type="text" name="quantity[]" value="1" size="5" class="productQuantity" /><img src="{{ asset('/images/icons/arrow_right32.png') }}" alt="Artikel löschen" style="float: right; height: 20px; margin: 0; cursor: pointer;" />
+                                    <input type="hidden" name="price" value="{{ prod.price }}" id="productPrice" />
+                                </td>
+                                <td class="center">
+                                    <span class="product_sum">{{ prod.price }}</span>€
+                                </td>
+                                <td> <!--<input name="btnDelete" type="button" id="btnDelete" value="Delete" onClick="window.location.href='/webshop/cart.php?action=delete&cid=13';" class="box"/> -->
+                                    <a href="/webshop/cart.php?action=delete&amp;cid=13" class="center"><img src="{{ asset('/bundles/ladensiastorewebshop/images/icons/delete.png') }}" alt="Artikel löschen"></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}
+                {% else %}
+                    <tr colspan="6"><td>Sie haben noch keine Artikel in Ihrem Warenkorb.</td></tr>
+                {% endif %}
+                
+                     
+                <tr class="content grey" style="height: 50px;"> 
+                    <td colspan="6">
+                        <input name="btnContinue" type="button" id="btnContinue" value="&lt;&lt; Weiter Shoppen" onclick="window.location.href='{{ prevUrl }}';" class="checkout_btn left margin20" style="display: inherit; cursor: pointer;" />
+                        <input name="btnUpdate" type="submit" id="btnUpdate" value="Aktualisieren" class="checkout_btn left" style="display: inherit" onclick="return false;" />
+                    </td>
+                </tr>
+            </tbody></table>
+
+        </form>
+        
+        <table class="price_sum" border="0">
+            <tbody>
+            {% if products %}
+            <tr class="content"> 
+                <td>Zwischensumme</td>
+                <td>81€</td>
+
+            </tr>
+            <tr class="content collapse"> 
+                <td class="border_btm">Versand </td>
+                <td class="border_btm">5€</td>
+
+            </tr>
+            <tr class="bold"> 
+                <td>Gesamtsumme </td>
+                <td>86€</td>
+
+            </tr>
+            {% else %}
+            <tr><td>Keine Daten verfügbar.</td></tr>
+            {% endif %}
+            {#<tr>
+                     <td colspan="2">
+                        <br>
+                        <input name="btnCheckout" type="button" id="btnCheckout" value="Bestellung absenden &gt;&gt;" onclick="window.location.href='checkout.php?step=1';" class="checkout_btn flt_right">
+                    </td> 
+                     
+            </tr>#}
+        </tbody></table>
+
+         <div class="clr"></div>
+         {#<div class="product_footer_box">
+            <span class="product_buy" style="margin-right: 33px;"><a href="{{ path('LadensiaStoreCheckoutBundle_login') }}"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_white.gif') }}" alt="Schritt 2" /> Zur Kasse</a></span>
+         </div>#}
+         <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+
+</div> {# right_column end #}
+
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}

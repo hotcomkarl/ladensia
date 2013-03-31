@@ -1,0 +1,15 @@
+LadensiaAdminBundle_statistic:
+    pattern:  /statistic
+    defaults: { _controller: LadensiaAdminBundle:Statistic\Statistic:index }
+
+LadensiaAdminBundle_statistic_sale:
+    pattern:  /statistic_sale
+    defaults: { _controller: LadensiaAdminBundle:Statistic\Statistic:salesStatistic }
+
+LadensiaAdminBundle_statistic_orders:
+    pattern:  /statistic_orders
+    defaults: { _controller: LadensiaAdminBundle:Statistic\Statistic:ordersStatistic }
+
+LadensiaAdminBundle_statistic_clients:
+    pattern:  /statistic_clients
+    defaults: { _controller: LadensiaAdminBundle:Statistic\Statistic:clientsStatistic }

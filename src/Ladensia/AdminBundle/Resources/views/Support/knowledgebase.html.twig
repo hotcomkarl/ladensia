@@ -1,0 +1,54 @@
+{% extends 'LadensiaAdminBundle:Support:index.html.twig' %}
+
+                    {% block support_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>Knowledgebase</h2>
+                                
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Kategorie</th>
+                                            <th>Beschreibung</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Kategorie</th>
+                                            <th>Beschreibung</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if knowledgebase_categories %}
+                                    {% for knowledgebase_categorie in knowledgebase_categories %}
+                                        <tr>
+                                            <td style="width: 160px">{{ knowledgebase_categorie.name }}</td>
+                                            <td>{{ knowledgebase_categorie.description }}</td>
+                                            <td style="width: 80px"><a href="#"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" /></a></td>
+                                            <td style="width: 80px"><a href="#"><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                            <td style="width: 80px"><a href="{{ path('LadensiaAdminBundle_knowledgebase_article_list', { 'knowledgebase_category_id' : knowledgebase_categorie.id }) }}"><img src="{{ asset('images/icons/application_view_columns.png') }}" alt="edit" /></a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5" align="center">Keine Inhalte vorhanden</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                
+                                </table>
+
+                            </section>
+                        </div>
+                    </div>
+                    {% endblock %}

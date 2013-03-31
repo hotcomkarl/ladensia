@@ -1,0 +1,3 @@
+LadensiaAdminBundle_config:
+    pattern:  /config
+    defaults: { _controller: LadensiaAdminBundle:Config\Default:index }

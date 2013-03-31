@@ -1,0 +1,37 @@
+{% extends 'LadensiaAdminBundle:Sale:index.html.twig' %}
+                
+                    {% block sale_content %}
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a href="#" class="button button-gray no-text form-new"><span class="add"></span></a></li>
+                                </ul>
+                                <h2>Neue Bestellungen aufgeben</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.shipping_first_name) }}
+                                        {{ form_errors(form.shipping_first_name) }}
+                                        {{ form_widget(form.shipping_first_name) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        {{ form_label(form.shipping_last_name) }}
+                                        {{ form_errors(form.shipping_last_name) }}
+                                        {{ form_widget(form.shipping_last_name) }}
+                                    </div>
+                                    {{ form_rest(form) }}
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray">Neue Kategorie anlegen</button>
+                                    </div>
+                                </form>
+
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+                    {% endblock %}

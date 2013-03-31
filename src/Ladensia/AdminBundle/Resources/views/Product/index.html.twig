@@ -1,0 +1,122 @@
+{% extends 'LadensiaAdminBundle:Sale:index.html.twig' %}
+                
+                    {% block sale_content %}
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a href="{{ path('LadensiaAdminBundle_product_add') }}" class="button button-gray no-text"><span class="add"></span></a></li>
+                                </ul>
+                                <h2 class="cat_filter">Produkte 
+                                    <select class="product_filter">
+                                        <option value="0">Alle Kategorien</option>
+                                        {% for category in categories %}
+                                            <option value="{{ category.id }}">{{ category.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <button class="show_products button button-gray">Produkte anzeigen</button>
+                                </h2> 
+                            </header>
+                            <section class="clearfix">
+                            
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Auf Lager</th>
+                                            <th>Preis</th>
+                                            <th>Thumbnail</th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Details</th>
+                                            <th>Auf Lager</th>
+                                            <th>Thumbnail</th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if products %}
+                                        {% for product in products %}
+                                        <tr id="{{ product.id }}">
+                                                <td>{{ product.name }}</td>                                              
+                                                <td>{{ product.quantity }}</td>
+                                                <td>{{ product.price }}</td>
+                                                <td><img src="/uploads/thumbnails/{{ product.thumbnail }}" alt="" width="50px" /></td>
+                                                <td style="display: none;">{{ product.id }}</td>
+                                                <td><a href="" class="confirm-message" onclick="setProductId('{{ product.id }}')"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="product_del" /></a></td>                                             
+                                                <td><a href="{{path('LadensiaAdminBundle_product_modify', {'productId': product.id }) }}"><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                                <td><a class="view-details" href="#{{ product.id }}"><img src="{{ asset('images/icons/zoom.png') }}" alt="edit" /></a>
+                                                    <div class="overlay-details">
+                                                        <header class="clearfix"> 
+                                                            <hgroup>
+                                                                <h2>Name: {{ product.name }}</h2>
+                                                            </hgroup>
+                                                            </header>
+                                                            <section>
+                                                              <div class="flt_l">
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Kategorie:  <span class="flt_r normal">{{ product.catId }}</span></h6>
+                                                                </div>
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Name:  <span class="flt_r normal">{{ product.name }}</span></h6>
+                                                                </div>
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Preis:  <span class="flt_r normal">{{ product.price }}</span></h6>
+                                                                </div>
+                                                                <div class="clr">
+                                                                    <h6 class="width200"><span class="bold">Beschreibung:</span>  {{ product.description|raw }}</h6>
+                                                                    <div style="clear: both"></div>
+                                                                </div>
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Anzahl auf Lager:  <span class="flt_r normal">{{ product.quantity }}</span></h6>
+                                                                </div>
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Featured(auf Startseite sichtbar):  <span class="flt_r normal">{{ product.featuredText }}</span></h6>
+                                                                </div>
+                                                              </div>
+                                                              <div class="flt_r">
+                                                                <div class="clr">
+                                                                    <h6 class="bold width200">Produktbild:  <span class="flt_r normal"><img src="/uploads/thumbnails/{{ product.thumbnail }}" alt="product.name" /></span></h6>
+                                                                </div>
+                                                              </div>
+                                                            </section>
+                                                    </div>
+                                                </td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="7" align="center">Keine Produkte vorhanden</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                    
+                                </table>
+                                <div id="dialog-confirm" title="Produkt löschen?" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Dieses Produkt wird dauerhaft gelöscht. Sind Sie sicher?</p>
+                                </div>
+
+                                <div id="dialog-success" title="Produkt gelöscht" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 20px 0;"></span>Das Produkt wurde erfolgreich gelöscht.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+                    
+                    </div>
+                    {% endblock %}
+
+                    
+
+                

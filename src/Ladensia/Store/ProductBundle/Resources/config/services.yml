@@ -1,0 +1,8 @@
+parameters:
+#    ladensia_cms.example.class: Ladensia\CmsBundle\Example
+
+services:
+#    ladensia_cms.example:
+#        class: %ladensia_cms.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+     

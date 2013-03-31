@@ -1,0 +1,45 @@
+{% extends 'LadensiaAdminBundle:Cms:index.html.twig' %}
+
+
+
+                    {% block cms_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a class="modalInput button button-blue" href="{{ path('LadensiaAdminBundle_sites') }}">Zurück zur Übersicht</a></li>
+
+                                </ul>
+                                <h2>Neue Seite anlegen</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form_editor">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.title) }}
+                                        {{ form_errors(form.title) }}
+                                        {{ form_widget(form.title) }}
+                                    </div>
+                                        
+                                    <div class="clearfix">
+                                        {{ form_label(form.heading) }}
+                                        {{ form_errors(form.heading) }}
+                                        {{ form_widget(form.heading) }}
+                                    </div>
+                              
+                                    <div class="clearfix editor">
+                                        {{ form_label(form.content) }}
+                                        {{ form_errors(form.content) }}
+                                        {{ form_widget(form.content) }}
+                                    </div>
+
+                                    {{ form_rest(form) }}
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray" style="float: none">Absenden</button>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+
+                    {% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    <div id="product_box">
+        <h1 class="newproduct_heading">Kundendetails<br></h1>
+        {#
+            popupId, amount, paymentMethod, returnUrl, errorUrl
+        #}
+
+        <ul class="tabs">
+            <li><a href="#" class="current">Rechnungsinformationen</a></li>
+            <li><a href="#">Versandinformationen</a></li>
+            <li><a href="#">Zahlart wählen</a></li>
+        </ul>
+        <form action="" method="post" {{ form_enctype(form) }} class="form">
+        <div class="panes clearfix">
+            <section style="display: block; "><h4>First tab content.</h4> Tab contents are called "panes"</section>
+            <section style="display: none; "><h4>Second tab content.</h4> Tab contents are called "panes"</section>
+            <section style="display: none; ">
+                {% for payment in form.paymentMethod %}
+                <div class="clr">
+                        {{ form_errors(payment) }}
+                        {{ form_widget(payment) }}
+                        {{ form_label(payment) }}
+                </div>
+                {% endfor %}
+
+                {{ form_rest(form) }}
+                {# <div class="action clearfix">
+                    <button class="button button-gray flt_l" type="submit">
+                    <span class="accept"></span>
+                    Bezahlen
+                    </button>
+
+                </div> #}
+            </section>
+        </div>
+
+        
+            
+            
+        
+
+        <div class="product_footer_box">
+            <span class="product_buy" style="margin-right: 33px;"><button type="submit" class="no_button"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_white.gif') }}" alt="Schritt 3" /> Bezahlen</a></button></span>
+         </div>
+         </form>
+    </div> {# product_box end #}
+</div> {# right_column end #}
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}

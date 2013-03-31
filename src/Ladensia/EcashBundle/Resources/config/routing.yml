@@ -1,0 +1,9 @@
+LadensiaEcashBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LadensiaEcashBundle:Default:index }
+
+_heidelpay_import:
+    resource: "@LadensiaEcashBundle/Resources/config/heidelpay/routing.yml"
+    
+_expercash_import:
+    resource: "@LadensiaEcashBundle/Resources/config/expercash/routing.yml"

@@ -1,0 +1,126 @@
+{% extends 'LadensiaAdminBundle:Default:index.html.twig' %}
+
+{% block content %}
+                <!-- Main Section -->
+                <section class="main-section grid_10">
+
+                    <div style="float: left; width: 355px;">
+                    <div class="main-content grid_3 alpha" style="margin-bottom: 8px;">
+                        <header><h2>Quick Navigation</h2></header>
+                        <section class="clearfix">		
+                            {{ knp_menu_render('LadensiaAdminBundle:Builder:supportMenu') }}
+                        </section>
+                    </div>
+
+                    {% if filter == 1 %}
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Support Tickets Filtern</h2></header>
+                        <section class="clearfix">		
+                            <section style="display:block">
+				<form action="" method="post" {{ form_enctype(search_form) }} class="form">
+                                <div class="clearfix">
+                                    <input type="text" id="quickfind" placeholder="Gesamte Tabelle durchsuchen..." class="filter" />
+                                </div>
+                                </form>
+                            </section>
+                        </section>
+                    </div>
+                    {% endif %}
+
+                    {% if knowledgebase == 1 %}
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Knowledgebase</h2></header>
+                        <section class="clearfix">	
+                            <button class="button button-gray" style="float: left; width: 200px; margin: 5px 0;" onclick="parent.location='{{ path('LadensiaAdminBundle_knowledgebase_category') }}'"><span class="add"></span>Kategorie hinzufügen</button>
+                            
+                                {% if knowledgebase_categories != '' %}
+                                    <button class="button button-gray" style="float: left; width: 200px;" onclick="parent.location='{{ path('LadensiaAdminBundle_knowledgebase_article') }}'"><span class="add"></span>Artikel hinzufügen</button>
+                                {% endif %}
+                           
+                        </section>
+                    </div>
+                    {% endif %}
+                    </div>
+                    {% block support_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                            <ul class="action-buttons clearfix fr">
+                                <li><a href="#" class="button button-gray no-text button-display"><span class="find"></span></a></li>
+                                <li><a href="#" class="button button-gray no-text"><span class="conf"></span></a></li>
+                            </ul>
+
+                            <h2>Support Tickets</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full" id="tablefilter">
+                                    <thead>
+                                        <tr>
+                                            <th>Ticket</th>
+                                            <th style="width: 160px">Datum</th>
+                                            <th>Betreff</th>
+                                            <th>Abteilung</th>
+                                            <th>Priorität</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Ticket</th>
+                                            <th style="width: 160px">Datum</th>
+                                            <th>Betreff</th>
+                                            <th>Abteilung</th>
+                                            <th>Priorität</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if support_tickets %}
+                                        {% for support_ticket in support_tickets %}
+                                        <tr id="{{ support_ticket.id }}">
+                                                <td>{{ support_ticket.id }}</td>
+                                                <td>{{ support_ticket.createdAt }}</td>
+                                                <td>{{ support_ticket.title }}</td>
+                                                <td>{{ support_ticket.department }}</td>
+                                                <td>{{ support_ticket.priority }}</td>
+                                                <td><a href="#" class="confirm-message" onclick="setTicketId('{{ support_ticket.id }}')"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href=""><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="7" align="center">Keine Support Tickets vorhanden</td>
+                                        </tr>
+                                    {% endif %} 
+                                    </tbody>
+                                    
+                                </table>
+                                <div id="dialog-confirm" title="Ticket löschen?" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Das Ticket wird dauerhaft gelöscht. Sind Sie sicher?</p>
+                                </div>
+
+                                <div id="dialog-success" title="Ticket gelöscht" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 20px 0;"></span>Das Ticket wurde erfolgreich gelöscht.</p>
+                                </div>
+
+                                <div id="dialog-configure" title="Einstellungen vornehmen" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-triangle-1-e" style="float:left; margin:0 7px 20px 0;"></span>Tabellen Filter dauerhaft <a href="#" class="button-display-display"> ein</a> - <a href="#" class="button-display-none">aus</a> schalten im Tabellenkopf.</p>
+                                        <!--<p><span class="ui-icon ui-icon-triangle-1-e" style="float:left; margin:0 7px 20px 0;"></span>Tabellen Filter dauerhaft <a href="#" class="button-display-display"> ein</a> - <a href="#" class="button-display-none">aus</a> schalten im Tabellenkopf.</p>-->
+                                </div>
+
+                            </section>
+                        </div>
+                    </div>
+                    {% endblock %}
+
+                    
+
+                    <div class="clear"></div>
+
+                </section>
+
+                <!-- Main Section End -->
+{% endblock %}

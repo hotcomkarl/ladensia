@@ -1,0 +1,15 @@
+LadensiaStoreProductBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LadensiaStoreProductBundle:Default:index }
+
+LadensiaStoreProductBundle_product_detail:
+    pattern:  /product_detail/{product_uuid}/
+    defaults: { _controller: LadensiaStoreProductBundle:Product:productDetail }
+
+LadensiaStoreProductBundle_list:
+    pattern:  /product_list/{criteria}/
+    defaults: { _controller: LadensiaStoreProductBundle:Product:list }
+
+LadensiaStoreProductBundle_list_categories:
+    pattern:  /category_list/
+    defaults: { _controller: LadensiaStoreProductBundle:Product:listCategories }

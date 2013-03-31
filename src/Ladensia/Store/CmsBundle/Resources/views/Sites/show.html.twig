@@ -1,0 +1,22 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+    <div class="right_column">
+        {% if site %}
+            {% for site_detail in site %}
+                <h2 class="h2">{{ site_detail.heading }}</h2>
+                
+                <div class="site_content">{{ site_detail.content|raw }}</div>
+            {% endfor %}
+        {% endif %}
+                
+        <div class="clr"></div>
+        <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" class="mrg20" />
+    </div>
+
+<script type="text/javascript">
+        var gallerific = '';
+</script>
+{% endblock %}

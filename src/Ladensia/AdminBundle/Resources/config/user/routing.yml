@@ -1,0 +1,3 @@
+LadensiaAdminBundle_user:
+    pattern:  /user
+    defaults: { _controller: LadensiaAdminBundle:User\User:index }

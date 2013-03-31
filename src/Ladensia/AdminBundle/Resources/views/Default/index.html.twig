@@ -1,0 +1,256 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('/css/reset.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/grid.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/messages.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/forms.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/tables.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/jquery-ui.custom.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/jquery.jqplot.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/jquery.cleditor.css') }}" type="text/css" rel="stylesheet" />
+    <!--[if lt IE 8]>
+        <link href="{{ asset('/css/ie.css') }}" type="text/css" rel="stylesheet" />
+    <![endif]-->
+{% endblock %}
+
+
+{% block body %}
+<noscript>
+        <div class="alert alert-block span10">
+                <h4 class="alert-heading">Warnung!</h4>
+                <p><a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> muss aktiviert sein um diese Seite zu nutzen.</p>
+        </div>
+</noscript>
+
+<div id="wrapper">
+    <header>
+        <div class="clearfix">
+        <a class="chevron fr"></a>
+        {% block main_nav %}
+            <nav>
+            {{ knp_menu_render('LadensiaAdminBundle:Builder:mainMenu') }}
+            </nav>
+        {% endblock %}
+        </div>
+    </header>
+
+<section>
+<div class="container_8 clearfix">  
+    {% block content %}
+        <!-- Main Section -->
+        <ul class="main-section grid_10 column sortable-list" style="margin: 0; padding: 0;">
+
+            <!-- note Section -->
+            <li class="main-content grid_3_1" id="sortable-1">
+
+                <header >
+                    <ul class="action-buttons clearfix fr">
+                        <li><a href="#" class="button button-gray no-text"><span class="ungroup"></span></a></li>
+                    </ul>
+                    <h2>
+                        Neue Bestellungen
+                    </h2>
+                </header>
+                <section class="container_6 clearfix " style="height: 250px; "><!--box inhalt start-->
+                    <div class="grid_2_1">
+                                        <dl>
+                                            <dt class="code">24.11.2011 | Henry James | Service: Shared Hosting <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dt>
+                                            <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+                                            <dt class="code">24.11.2011 | Henry James | Service: Shared Hosting <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dt>
+                                            <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+
+                                        </dl>
+                     <br />
+                     <div class="clearfix"></div>
+                     <button class="button button-gray right">Insgesamt: 3 neue Kunden</button>
+                     </div>
+                </section><!--box inhalt ende-->
+            </li>
+
+
+            <!-- information Section -->
+            <li class="main-content grid_3_1" id="sortable-2">
+                <header class="portlet-header">
+                    <ul class="action-buttons clearfix fr">
+                        <li><a href="#" class="button button-gray no-text"><span class="ungroup"></span></a></li>
+                    </ul>
+                    <h2>
+                        Quick Links
+                    </h2>
+                </header>
+                <section class="container_6 portlet-content clearfix" style="height: 250px;"><!--box inhalt start-->
+                    <div class="grid_2_1">
+                    {{ knp_menu_render('LadensiaAdminBundle:Builder:infoMenu') }}
+                    <br />
+                    
+                    </div>
+                </section><!--box inhalt ende-->
+            </li>
+
+
+            <!-- calender Section -->
+            <li class="main-content grid_3_1" id="sortable-3">
+                <header>
+                    <h2>
+                        Logbuch
+                    </h2>
+                </header>
+                <section class="container_6 clearfix" style="height: 250px;"><!--box inhalt start-->
+                    <div class="grid_2_1">
+                            <dl>
+                                
+                                <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+                                <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+
+                            </dl>
+                     <br />
+                     <div class="clearfix"></div>
+                     <button class="button button-gray right">Insgesamt: 3 neue Einträge</button>
+                     </div>
+                </section><!--box inhalt ende-->
+            </li>
+
+
+            <!-- support tickets Section -->
+            <li class="main-content grid_3_1" id="sortable-4">
+                <header>
+                    <ul class="action-buttons clearfix fr">
+                        <li><a href="#" class="button button-gray no-text"><span class="ungroup"></span></a></li>
+                    </ul>
+                    <h2>
+                        Support Tickets
+                    </h2>
+                </header>
+                <section class="container_6 clearfix" style="height: 250px;"><!--box inhalt start-->
+                    <div class="grid_2_1">
+                                    {% if support_tickets %}
+                                    <dl>
+                                        {% for support_ticket in support_tickets %}
+                                            <dt class="code">{{ support_ticket.createdAt }} | {{ support_ticket.userId }} | Service: Shared Hosting <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dt> 
+                                        {% endfor %}
+                                    </dl>
+                                    {% else %}
+                                        <p>Keine Support Tickets vorhanden.</p>
+                                    {% endif %}
+                     <br />
+                     <div class="clearfix"></div>
+                     {% if support_tickets %}
+                     <button class="button button-gray right"><a href="support.php">Insgesamt: neue Tickets</a></button>
+                     {% endif %}
+                     </div>
+
+                </section><!--box inhalt ende-->
+            </li>
+
+
+            <!-- new members Section -->
+            <li class="main-content grid_3_1" id="sortable-5">
+                <header>
+                    <ul class="action-buttons clearfix fr">
+                        <li><a href="#" class="button button-gray no-text"><span class="ungroup"></span></a></li>
+                    </ul>
+                    <h2>
+                        Neue Kunden
+                    </h2>
+                </header>
+                <section class="container_6 clearfix" style="height: 250px;"><!--box inhalt start-->
+                    <div class="grid_2_1">
+                                        <dl>
+                                            <dt class="code">24.11.2011 | Henry James | Service: Shared Hosting <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dt>
+                                            <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+                                            <dt class="code">24.11.2011 | Henry James | Service: Shared Hosting <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dt>
+                                            <dd class="code2">26.11.2011 | John Doe... | Service: 1x .de Domain <a href=""><img src="{{ asset('images/icons/pencil_go.png') }}" alt="bearbeiten" class="pen" /></a></dd>
+
+                                        </dl>
+                     <br />
+                     <div class="clearfix"></div>
+                     <button class="button button-gray right">Insgesamt: 3 neue Kunden</button>
+                     </div>
+                </section><!--box inhalt ende-->
+            </li>
+
+
+            <!-- Statistics Section -->
+            <li class="main-content grid_3_1" id="sortable-6">
+                <header>
+                    <ul class="action-buttons clearfix fr">
+                        <li><a href="#" class="button button-gray no-text"><span class="ungroup"></span></a></li>
+                    </ul>
+                    <h2>
+                        Paketressourcen
+                    </h2>
+                </header>
+                <section class="container_6 clearfix" style="height: 250px;"><!--box inhalt start-->
+
+                    <table class="simple full" style="width: 395px;">
+                        <tr>
+                            <td style="width: 30%">Tickets</td><td style="width: 10%" class="ar">{{ support_tickets_opend }}/{{ support_tickets_count }}</td><td style="width: 60%"><div class="progress progress-blue"><span style="width: {{ percent }}%"><b>{{ percent }}%</b></span></div></td>
+
+                        </tr>
+                        <tr>
+                            <td style="width: 30%">Produkte</td><td style="width: 10%" class="ar">20/100</td><td style="width: 60%"><div class="progress progress-blue"><span style="width: 20%"><b>20%</b></span></div></td>
+
+                        </tr>
+                        <tr>
+                            <td>Kunden</td><td class="ar">40/100</td><td><div class="progress progress-blue"><span style="width: 40%"><b>40%</b></span></div></td>
+                        </tr>
+                        <tr>
+                            <td>Speicher</td><td class="ar">60/100</td><td><div class="progress progress-blue"><span style="width: 60%"><b>60%</b></span></div></td>
+
+                        </tr>
+                        <tr>
+                            <td>Datenverkehr</td><td class="ar">80/100</td><td><div class="progress progress-blue"><span style="width: 80%"><b>80%</b></span></div></td>
+                        </tr>
+                    </table>
+                </section><!--box inhalt ende-->
+            </li>
+
+
+        </ul>
+
+    {% endblock %}
+</div>
+</section>
+
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <!--[if lt IE 9]>
+        <script src="{{ asset('/js/ie.js') }}" type="text/javascript"></script>
+    <![endif]-->
+    <script src="{{ asset('/js/jquery.tools.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.core.min.js') }}" type="text/javascript"></script>    
+    <script src="{{ asset('/js/jquery.ui.widget.min.js') }}" type="text/javascript"></script> 
+    <script src="{{ asset('/js/jquery.ui.mouse.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.ui.button.js') }}"></script>
+    <script src="{{ asset('/js/jquery.cookie.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.tables.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jquery.ui.datepicker.min.js') }}" type="text/javascript"></script>  
+    <script src="{{ asset('/js/i18n/jquery.ui.datepicker-de.js') }}" type="text/javascript"></script>    
+    <script src="{{ asset('/js/jquery.ui.draggable.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.ui.position.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.ui.dialog.min.js') }}"></script>
+    <script src="{{ asset('/js/jquery.cleditor.min.js') }}"></script>
+    <script src="{{ asset('/js/ddaccordion.js') }}" type="text/javascript"></script>
+
+    <script src="{{ asset('/js/jqplot/jquery.jqplot.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.barRenderer.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.highlighter.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.cursor.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.pointLabels.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.dateAxisRenderer.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.pieRenderer.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/jqplot/plugins/jqplot.donutRenderer.min.js') }}" type="text/javascript"></script>
+
+    <script src="{{ asset('/js/picnet.table.filter.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/custom.js') }}" type="text/javascript"></script>
+    
+
+
+
+{% endblock %}

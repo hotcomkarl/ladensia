@@ -1,0 +1,7 @@
+LadensiaAdminBundle_order:
+    pattern:  /orders
+    defaults: { _controller: LadensiaAdminBundle:Order\Order:list }
+
+LadensiaAdminBundle_new_order:
+    pattern:  /new_order
+    defaults: { _controller: LadensiaAdminBundle:Order\Order:new }

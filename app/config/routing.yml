@@ -1,0 +1,57 @@
+LadensiaEmailBundle:
+    resource: "@LadensiaEmailBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaConnectionBundle:
+    resource: "@LadensiaConnectionBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaEcashBundle:
+    resource: "@LadensiaEcashBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaCoreBundle:
+    resource: "@LadensiaCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaAdminBundle:
+    resource: "@LadensiaAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+LadensiaStoreSupportBundle:
+    resource: "@LadensiaStoreSupportBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaStoreWebshopBundle:
+    resource: "@LadensiaStoreWebshopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaStoreMarketingBundle:
+    resource: "@LadensiaStoreMarketingBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+LadensiaStoreCmsBundle:
+    resource: "@LadensiaStoreCmsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaStoreProductBundle:
+    resource: "@LadensiaStoreProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaStoreCheckoutBundle:
+    resource: "@LadensiaStoreCheckoutBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LadensiaStoreCartBundle:
+    resource: "@LadensiaStoreCartBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal
+
+_user_import:
+    resource: "@LadensiaUserBundle/Resources/config/routing.yml"
+
+

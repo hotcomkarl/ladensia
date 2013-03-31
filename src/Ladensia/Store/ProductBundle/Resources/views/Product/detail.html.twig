@@ -1,0 +1,62 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    {% if product %}
+        {% for product_detail in product %}
+        <div class="product_images">
+            <div class="img">
+                <img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" class="image" />
+            </div>
+
+            <ul class="small_images">
+                <li><img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" /></li>
+                {# <li><img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" /></li>
+                <li><img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" /></li>
+                <li><img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" /></li>
+                <li><img src="/uploads/{{ product_detail.image }}" alt="{{ product_detail.name }}" /></li> #}
+            </ul>
+        </div>
+
+        <div id="product_short">
+            <h2>{{ product_detail.name }}</h2>
+            <h2 style="color: #47AA5E">{{ product_detail.price }}€ <span class="flt_right grey normal">MwSt. {{ product_detail.tax }}€</span></h2>
+            <h2 class="grey normal f16">Verfügbarkeit <span class="available"><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /><img src="{{ asset('/images/icons/bullet_green_big.png') }}" alt="divider" /></span></h2>
+            <select class="optiongroup">
+                <optgroup label="Anzahl">
+                    <option value="1">1</option><option value="2">2</option><option>3</option>
+                </optgroup>
+            </select>
+            <select class="optiongroup">
+                <optgroup label="Farbe">
+                    <option value="1">Rot</option><option value="2">Grün</option><option>Blau</option>
+                </optgroup>
+            </select>
+            
+            <a href="{{ path('LadensiaStoreCartBundle_show_cart', {'productId' : product_detail.id}) }}"><button class="button_buy_small">Bestellen</button></a>
+        </div>
+        <div class="clr"></div>
+
+        <div class="product_details" id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Beschreibung</a></li>
+                <li><a href="#tabs-2">Bewertungen</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>{{ product_detail.description|raw }}</p>
+            </div>
+            <div id="tabs-2">
+                <p>Es wurden noch keine Bewertungen abgegeben.</p>
+            </div>
+        </div>
+            {% endfor %}
+         {% endif %}
+
+        <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+        </div>
+<script type="text/javascript">
+        var gallerific = '';
+</script>
+{% endblock %}

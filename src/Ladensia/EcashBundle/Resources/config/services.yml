@@ -1,0 +1,7 @@
+parameters:
+#    ladensia_ecash.example.class: Ladensia\EcashBundle\Example
+
+services:
+#    ladensia_ecash.example:
+#        class: %ladensia_ecash.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

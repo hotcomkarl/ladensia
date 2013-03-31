@@ -1,0 +1,51 @@
+{% extends 'LadensiaAdminBundle:Product:index.html.twig' %}
+
+{% block sale_content %}
+                    <!-- Forms Section -->
+                    <div id="product_add" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a class="modalInput button button-blue" href="{{ path('LadensiaAdminBundle_product') }}">Zurück zur Produkt Übersicht</a></li>
+
+                                </ul>
+                                <h2>Neues Produkt anlegen</h2>
+                            </header>
+                            <section class="clearfix">
+
+                            <form action="" method="post" {{ form_enctype(form) }} class="form">
+
+                                <div class="clearfix">
+                                        {{ form_label(form.catId, 'Kategorie') }}
+                                        {{ form_errors(form.catId) }}
+                                        {{ form_widget(form.catId) }}
+                                </div>
+
+                                <div class="clearfix">
+                                        {{ form_label(form.name) }}
+                                        {{ form_errors(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                </div>
+                                <div class="clearfix">
+                                        {{ form_label(form.price) }}
+                                        {{ form_errors(form.price) }}
+                                        {{ form_widget(form.price) }}
+                                </div>
+                                <div class="clearfix">
+                                        {{ form_label(form.description) }}
+                                        {{ form_errors(form.description) }}
+                                        {{ form_widget(form.description) }}
+                                </div>
+                                {{ form_rest(form) }}
+                                <div class="action clearfix">
+                                    <button class="button button-gray flt_l" type="submit">
+                                    <span class="accept"></span>
+                                    OK
+                                    </button>
+                                    <button class="button button-gray flt_l" type="reset">Zurücksetzen</button>
+                                </div>
+                            </form>
+                            </section>
+                         </div>
+                     </div>
+{% endblock %}

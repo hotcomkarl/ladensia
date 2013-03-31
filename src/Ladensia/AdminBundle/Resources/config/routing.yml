@@ -1,0 +1,39 @@
+LadensiaAdminBundle_homepage:
+    pattern:  /hello
+    defaults: { _controller: LadensiaAdminBundle:Default:hello }
+
+_dashboard_import:
+    resource: "@LadensiaAdminBundle/Resources/config/dashboard/routing.yml"
+
+_sale_import:
+    resource: "@LadensiaAdminBundle/Resources/config/sale/routing.yml"
+
+_category_import:
+    resource: "@LadensiaAdminBundle/Resources/config/category/routing.yml"
+
+_product_import:
+    resource: "@LadensiaAdminBundle/Resources/config/product/routing.yml"
+
+_order_import:
+    resource: "@LadensiaAdminBundle/Resources/config/order/routing.yml"
+
+_statistic_import:
+    resource: "@LadensiaAdminBundle/Resources/config/statistic/routing.yml"
+
+_user_import:
+    resource: "@LadensiaAdminBundle/Resources/config/user/routing.yml"
+
+_support_import:
+    resource: "@LadensiaAdminBundle/Resources/config/support/routing.yml"
+
+_cms_import:
+    resource: "@LadensiaAdminBundle/Resources/config/cms/routing.yml"
+
+_config_import:
+    resource: "@LadensiaAdminBundle/Resources/config/config/routing.yml"
+
+_help_import:
+    resource: "@LadensiaAdminBundle/Resources/config/help/routing.yml"
+
+_marketing_import:
+    resource: "@LadensiaAdminBundle/Resources/config/marketing/routing.yml"

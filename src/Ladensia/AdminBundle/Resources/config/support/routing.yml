@@ -1,0 +1,39 @@
+LadensiaAdminBundle_support:
+    pattern:  /support
+    defaults: { _controller: LadensiaAdminBundle:Support\Default:index }
+
+LadensiaAdminBundle_open_ticket:
+    pattern:  /open_ticket
+    defaults: { _controller: LadensiaAdminBundle:Support\Ticket:open }
+
+LadensiaAdminBundle_delete_ticket:
+    pattern:  /delete_ticket/{ticket_id}/
+    defaults: { _controller: LadensiaAdminBundle:Support\Ticket:delete }
+
+LadensiaAdminBundle_support_department:
+    pattern:  /support_department
+    defaults: { _controller: LadensiaAdminBundle:Support\Department:newDepartment }
+
+LadensiaAdminBundle_knowledgebase:
+    pattern:  /knowledgebase
+    defaults: { _controller: LadensiaAdminBundle:Support\Knowledgebase:categoryList }
+
+LadensiaAdminBundle_knowledgebase_article:
+    pattern:  /knowledgebase_article
+    defaults: { _controller: LadensiaAdminBundle:Support\Knowledgebase:newArticle }
+
+LadensiaAdminBundle_knowledgebase_article_list:
+    pattern:  /knowledgebase_article_list/{knowledgebase_category_id}/
+    defaults: { _controller: LadensiaAdminBundle:Support\Knowledgebase:articleList }
+
+LadensiaAdminBundle_knowledgebase_category:
+    pattern:  /knowledgebase_category
+    defaults: { _controller: LadensiaAdminBundle:Support\Knowledgebase:newCategory }
+
+LadensiaAdminBundle_infosystem:
+    pattern:  /infosystem
+    defaults: { _controller: LadensiaAdminBundle:Support\Infosystem:list }
+
+LadensiaAdminBundle_delete_info:
+    pattern:  /delete_info/{news_id}/
+    defaults: { _controller: LadensiaAdminBundle:Support\Infosystem:delete }

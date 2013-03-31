@@ -1,0 +1,66 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+{% form_theme form 'LadensiaStoreCheckoutBundle:Form:fields.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    <div id="product_box">
+        <h1 class="newproduct_heading">Anmelden<br></h1>
+        {#
+            popupId, amount, paymentMethod, returnUrl, errorUrl
+        #}
+
+        <ul class="tabs">
+            <li><a href="#" class="current">Bestandskunde</a></li>
+            <li><a href="#">Neukunde</a></li>
+        </ul>
+        <form action="" method="post" {{ form_enctype(form) }} class="form">
+        <div class="panes clearfix">
+            <section style="display: block; ">
+                <form action="{{ path("fos_user_security_check") }}" method="post" id="form" class="clearfix">
+                        <p>
+                            <input type="text" id="username" name="_username" value="" class="large" placeholder="" style="width: 200px; float: left; margin-right: 10px" />
+                            <input type="password" id="password" name="_password" class="large" placeholder="" style="width: 200px; float: left;" />
+                            <button class="large button button-gray" type="submit" style="padding: 6px 16px;">Login</button>
+                        </p>
+
+                        <p class="clearfix">
+				<span class="fl">
+                                        <label for="remember_me">Passwort merken</label>
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="float: left" />
+				</span>
+			</p>
+
+
+                        
+                    </form>
+            </section>
+            <section style="display: none; ">
+                <form action="" method="post" class="order_form">
+                    {{ form_errors(form) }}
+
+                        {{ form_rest(form) }}
+
+                        {# <div class="action clearfix">
+                            <button type="submit" class="button button-gray flt_l">Kategorie ändern</button>
+                        </div> #}
+                </form>
+            </section>
+        </div>
+
+        
+            
+            
+        
+
+        <div class="product_footer_box">
+            <span class="product_buy" style="margin-right: 33px;"><a href="{{ path('LadensiaStoreCheckoutBundle_select_payment') }}"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_white.gif') }}" alt="Schritt 3" /> Zahlart wählen</a></span>
+         </div>
+         </form>
+    </div> {# product_box end #}
+</div> {# right_column end #}
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}

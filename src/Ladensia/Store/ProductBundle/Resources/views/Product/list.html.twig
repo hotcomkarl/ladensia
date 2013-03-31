@@ -1,0 +1,98 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block style %}
+    <style>
+    #accordion_resizer ul li p, h3{
+        width: 99% !important;
+    }
+    </style>
+{% endblock %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    {% if products %}
+        <div class="products">
+                <ul>
+                    {% for product in products %}
+                    <li class="relative">
+                        <img src="/uploads/thumbnails/{{ product.image }}" alt="{{ product.name }}" class="product_pic" />
+                        <div class="absolute_buy">
+                            <h3>{{ product.name }}</h3>
+                            <p class="grey">{{ product.featuredDescription|raw }}
+                                <a href="{{ path('LadensiaStoreCartBundle_show_cart', {'productId' : product.id}) }}"></a>
+                            </p>
+                            {# <p><button class="flt_right button_buy" value="{{ product.id }}"></button></p> #}
+                            <p class="buy"><span class="price">{{ product.price }}€</span>                      
+                            {# <a href="{{ path('LadensiaStoreProductBundle_product_detail', { 'product_uuid' : product.uuid }) }}"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_orange2.gif') }}" alt="arrow" /> Details</a> #}
+                            <span class="flt_right button_buy">
+                                <a href="{{ path('LadensiaStoreProductBundle_product_detail', { 'product_uuid' : product.uuid }) }}" class="flt_left"> Details</a>
+                                <a href="/#{{ product.id }}" class="flt_right" style="margin-right: 8px;"> Bestellen</a>
+                            </span>
+                            </p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="clr"></div>
+            </div>
+    {% else %}
+    <div class="products" style="min-height: 388px">
+        <p>Keine Produkte in dieser Kategorie vorhanden.</p>
+    </div>
+    {% endif %}
+    <img src="{{ asset('/bundles/ladensiastorewebshop/images/content_divider.png') }}" alt="divider" />
+</div>
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}
+
+{% block product_filter %}
+{# <div style="width:210px; height:220px; margin: 0 0 20px 0;">
+    <div id="accordion">
+            <h3><a href="#">Preis</a></h3>
+            <div>
+                    <div class="slider_price"></div>
+            </div>
+            <h3><a href="#">Farbe</a></h3>
+            <div>
+                    <p>
+                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+                    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+                    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+                    suscipit faucibus urna.
+                    </p>
+            </div>
+            <h3><a href="#">Hersteller</a></h3>
+            <div>
+                    <p>
+                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+                    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+                    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+                    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                    </p>
+                    <ul>
+                            <li>List item one</li>
+                            <li>List item two</li>
+                            <li>List item three</li>
+                    </ul>
+            </div>
+            <h3><a href="#">Kategorie</a></h3>
+            <div>
+                    <p>
+                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+                    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+                    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                    mauris vel est.
+                    </p>
+                    <p>
+                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+                    inceptos himenaeos.
+                    </p>
+            </div>
+    </div>
+</div> #}
+{% endblock %}

@@ -1,0 +1,19 @@
+LadensiaAdminBundle_product:
+    pattern:  /products/{catId}/
+    defaults: { _controller: LadensiaAdminBundle:Product\Product:index, catId: 0 }
+
+LadensiaAdminBundle_product_add:
+    pattern:  /product_add
+    defaults: { _controller: LadensiaAdminBundle:Product\Product:add }
+
+LadensiaAdminBundle_product_sortby_category:
+    pattern:  /product_sortby_cat/{catId}/
+    defaults: { _controller: LadensiaAdminBundle:Product\Product:sortByCategory }
+
+LadensiaAdminBundle_product_delete:
+    pattern:  /product_delete/{productId}/
+    defaults: { _controller: LadensiaAdminBundle:Product\Product:delete }
+
+LadensiaAdminBundle_product_modify:
+    pattern:  /product_modify/{productId}/
+    defaults: { _controller: LadensiaAdminBundle:Product\Product:modify }

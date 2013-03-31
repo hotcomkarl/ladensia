@@ -1,0 +1,53 @@
+{% extends 'LadensiaAdminBundle:Support:index.html.twig' %}
+
+                    {% block support_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>Neues Support Ticket</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form_editor">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.user_id, 'User wählen') }}
+                                        {{ form_errors(form.user_id) }}
+                                        {{ form_widget(form.user_id) }}
+                                    </div>
+
+                                    <div class="clearfix">
+                                        {{ form_label(form.department, 'Abteilung') }}
+                                        {{ form_errors(form.department) }}
+                                        {{ form_widget(form.department) }}
+                                    </div>
+
+                                    <div class="clearfix">
+                                        {{ form_label(form.title) }}
+                                        {{ form_errors(form.title) }}
+                                        {{ form_widget(form.title) }}
+                                    </div>
+
+                                    <div class="clearfix editor">
+                                        {{ form_label(form.description) }}
+                                        {{ form_errors(form.description) }}
+                                        {{ form_widget(form.description) }}
+                                    </div>
+                                    
+                                    <div class="clearfix">
+                                        {{ form_label(form.priority) }}
+                                        {{ form_errors(form.priority) }}
+                                        {{ form_widget(form.priority) }}
+                                    </div>
+
+                                    {{ form_rest(form) }}
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray" style="float: none">Absenden</button>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                    <script>
+                        var editor = 'set';
+                    </script>
+                    {% endblock %}

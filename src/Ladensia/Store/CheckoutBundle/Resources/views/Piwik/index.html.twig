@@ -1,0 +1,64 @@
+{% extends 'LadensiaAdminBundle:Default:index.html.twig' %}
+
+{% block content %}
+<section class="main-section grid_10"> 
+                    {% block sub_nav %}
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Verkaufsbereich</h2></header>
+                        <section class="accordion clearfix">
+                            <header class="current"><h2>Produkt Kategorien</h2></header>
+                            <section style="display:block">
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:catMenu') }}
+                            </section>
+			    <header><h2>Produkte/Services</h2></header>
+                            <section>
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:productMenu') }}
+                            </section>
+				  
+		            <header><h2>Bestellungen</h2></header>
+                            <section>
+                                        {{ knp_menu_render('LadensiaAdminBundle:Builder:orderMenu') }}
+                            </section>
+                            
+                            <header><h2>Rechnungsverwaltung</h2></header>
+                            <section>
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:invoiceMenu') }}
+                            </section>
+
+                            <header><h2>Transaktionsverwaltung</h2></header>
+                            <section>
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:transMenu') }}
+                            </section>
+
+                            <header><h2>Auswertung</h2></header>
+                            <section>
+					{{ knp_menu_render('LadensiaAdminBundle:Builder:statisticMenu') }}
+                            </section>
+
+                        </section>
+                    </div>
+                    {% endblock %}
+
+
+                    {% block sale_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                    <h2>Verkaufsbereich Information</h2>
+                            </header>
+                            <section class="clearfix">
+
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+ 
+                            </section>
+                        </div>
+                    </div>
+
+                    {% endblock %}
+
+
+</section> 
+<div class="clear"></div>
+{% endblock %}

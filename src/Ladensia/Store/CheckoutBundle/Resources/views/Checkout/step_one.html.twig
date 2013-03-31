@@ -1,0 +1,95 @@
+{% extends 'LadensiaStoreWebshopBundle:Default:index.html.twig' %}
+
+{% block slider %}{% endblock %}
+
+{% block right_column %}
+<div class="right_column">
+    <div id="product_box">
+        <h1 class="newproduct_heading">Warenkorb<br></h1>
+        <form action="/webshop/cart.php?action=update" method="post" name="frmCart" id="frmCart">
+            <table border="0" cellpadding="5" class="entry_table">
+                <tbody>
+                <tr class="bold padding10"> 
+                    <td colspan="2">Artikel</td>
+                    <td>Einzelpreis</td>
+                    <td width="75">Anzahl</td>
+                    <td>Gesamt</td>
+                    <td width="75">&nbsp;</td>
+                </tr>
+                <tr class="content"> 
+                    <td width="80">
+                        <a href="index.php?c=16&amp;p=20"><img src="http://localhost/webshop/images/product/b024beb02d690b8aecd46f23779ded9b.jpg" class="width55"></a>
+                    </td>
+                    <td><a href="index.php?c=16&amp;p=20">huihuhu uih</a></td>
+                    <td>81€</td>
+                    <td width="75"><input name="txtQty[]" type="text" id="txtQty[]" size="5" value="1" class="box" onkeyup="checkNumber(this);">
+                        <input name="hidCartId[]" type="hidden" value="13">
+                        <input name="hidProductId[]" type="hidden" value="20">
+                    </td>
+                    <td>81€</td>
+                    <td width="75"> <!--<input name="btnDelete" type="button" id="btnDelete" value="Delete" onClick="window.location.href='/webshop/cart.php?action=delete&cid=13';" class="box"/> -->
+                        <a href="/webshop/cart.php?action=delete&amp;cid=13" class="center"><img src="{{ asset('/bundles/ladensiastorewebshop/images/icons/delete.png') }}" alt="Artikel löschen"></a>
+                    </td>
+                </tr>
+                <tr class="content"> 
+                    <td width="80">
+                        <a href="index.php?c=16&amp;p=20"><img src="http://localhost/webshop/images/product/b024beb02d690b8aecd46f23779ded9b.jpg" class="width55"></a>
+                    </td>
+                    <td><a href="index.php?c=16&amp;p=20">huihuhu uih</a></td>
+                    <td>81€</td>
+                    <td width="75"><input name="txtQty[]" type="text" id="txtQty[]" size="5" value="1" class="box" onkeyup="checkNumber(this);">
+                        <input name="hidCartId[]" type="hidden" value="13">
+                        <input name="hidProductId[]" type="hidden" value="20">
+                    </td>
+                    <td>81€</td>
+                    <td width="75"> <!--<input name="btnDelete" type="button" id="btnDelete" value="Delete" onClick="window.location.href='/webshop/cart.php?action=delete&cid=13';" class="box"/> -->
+                        <a href="/webshop/cart.php?action=delete&amp;cid=13" class="center"><img src="{{ asset('/bundles/ladensiastorewebshop/images/icons/delete.png') }}" alt="Artikel löschen"></a>
+                    </td>
+                </tr>
+                     
+                <tr class="content grey"> 
+                    <td colspan="6">
+                        <input name="btnContinue" type="button" id="btnContinue" value="&lt;&lt; Weiter Shoppen" onclick="window.location.href='/webshop/index.php?c=0&amp;p=20';" class="checkout_btn left margin20" style="display: inherit">
+                        <input name="btnUpdate" type="submit" id="btnUpdate" value="Aktualisieren" class="checkout_btn left" style="display: inherit">
+                    </td>
+                </tr>
+            </tbody></table>
+
+        </form>
+        
+        <table class="price_sum" border="0">
+            <tbody><tr class="content"> 
+                <td>Zwischensumme</td>
+                <td>81€</td>
+
+            </tr>
+            <tr class="content collapse"> 
+                <td class="border_btm">Versand </td>
+                <td class="border_btm">5€</td>
+
+            </tr>
+            <tr class="bold"> 
+                <td>Gesamtsumme </td>
+                <td>86€</td>
+
+            </tr> 
+            <tr>
+                    {# <td colspan="2">
+                        <br>
+                        <input name="btnCheckout" type="button" id="btnCheckout" value="Bestellung absenden &gt;&gt;" onclick="window.location.href='checkout.php?step=1';" class="checkout_btn flt_right">
+                    </td> #}
+                     
+            </tr>
+        </tbody></table>
+
+         <div class="clr"></div>
+         <div class="product_footer_box">
+            <span class="product_buy"><a href="{{ path('LadensiaStoreCheckoutBundle_step_two') }}"><img src="{{ asset('/bundles/ladensiastorewebshop/images/arrow_white.gif') }}" alt="Schritt 2" />Zahlart wählen</a></span>
+         </div>
+
+    </div> {# product_box end #}
+</div> {# right_column end #}
+<script type="text/javascript">
+            var gallerific = '';
+</script>
+{% endblock %}

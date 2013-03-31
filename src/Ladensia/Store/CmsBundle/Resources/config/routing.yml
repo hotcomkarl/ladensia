@@ -1,0 +1,19 @@
+LadensiaCmsBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LadensiaStoreCmsBundle:Default:index }
+
+LadensiaCmsBundle_aboutus:
+    pattern:  /aboutus
+    defaults: { _controller: LadensiaStoreCmsBundle:Sites:show, siteId: 2 }
+
+LadensiaCmsBundle_agbs:
+    pattern:  /agbs
+    defaults: { _controller: LadensiaStoreCmsBundle:Sites:show, siteId: 3 }
+
+LadensiaCmsBundle_widerruf:
+    pattern:  /widerrufsrecht
+    defaults: { _controller: LadensiaStoreCmsBundle:Sites:show, siteId: 4 }
+
+LadensiaCmsBundle_impressum:
+    pattern:  /impressum
+    defaults: { _controller: LadensiaStoreCmsBundle:Sites:show, siteId: 5 }

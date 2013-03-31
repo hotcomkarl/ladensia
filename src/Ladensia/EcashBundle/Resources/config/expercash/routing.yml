@@ -1,0 +1,5 @@
+LadensiaEcashBundle_payment:
+    pattern:  /payment 
+    defaults: { _controller: LadensiaEcashBundle:Expercash:index }
+
+#/{popupId}/{amount}/{paymentMethod}/{returnUrl}/{errorUrl}/

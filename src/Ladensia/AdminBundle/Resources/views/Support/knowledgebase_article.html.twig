@@ -1,0 +1,42 @@
+{% extends 'LadensiaAdminBundle:Support:index.html.twig' %}
+
+                    {% block support_content %}
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>Knowledgebase Artikel</h2>
+                                
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form_editor">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.category_id, 'Kategorie') }}
+                                        {{ form_errors(form.category_id) }}
+                                        {{ form_widget(form.category_id) }}
+                                    </div>
+
+                                    <div class="clearfix">
+                                        {{ form_label(form.name) }}
+                                        {{ form_errors(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                    </div>
+                                    <div class="clearfix editor">
+                                        {{ form_label(form.description) }}
+                                        {{ form_errors(form.description) }}
+                                        <div class="flt_l">{{ form_widget(form.description, { 'id': 'editor' }) }}</div>
+                                    </div>
+                                    {{ form_rest(form) }}
+
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray" style="float: left;">Neuen Artikel anlegen</button>
+                                    </div>
+                                 </form>
+
+                            </section>
+                        </div>
+                    </div>
+                    <script>
+                        var editor = 'set';
+                    </script>
+                    {% endblock %}

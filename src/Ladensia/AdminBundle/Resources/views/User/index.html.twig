@@ -1,0 +1,73 @@
+{% extends 'LadensiaAdminBundle:Default:index.html.twig' %}
+
+{% block content %}
+                <!-- Main Section -->
+                <section class="main-section grid_10">
+
+                    
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Kundenverwaltung</h2></header>
+                        <section class="clearfix">
+                            {{ knp_menu_render('LadensiaAdminBundle:Builder:userMenu') }}
+                        </section>
+                    </div>
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>User</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Registriert am</th>
+                                            <th>Letzter Login</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Registriert am</th>
+                                            <th>Letzter Login</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if users %}
+                                        {% for user in users %}
+                                        <tr>
+                                                <td>{{ user.username }}</td>
+                                                <td>{{ user.registerDate|date("m/d/Y") }}</td>
+                                                <td>{{ user.lastLogin|date("m/d/Y") }}</td>
+                                                <td><a href="javascript:deleteCategory({{ user.id }});"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href=""><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5" align="center">Keine User vorhanden</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                    
+                                </table>
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+
+                    
+
+                    <div class="clear"></div>
+
+                </section>
+
+                <!-- Main Section End -->
+{% endblock %}

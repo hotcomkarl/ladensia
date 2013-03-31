@@ -1,0 +1,110 @@
+{% extends 'LadensiaAdminBundle:Sale:index.html.twig' %}
+
+                    {% block sale_content %}
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a href="#" class="button button-gray no-text form-new"><span class="add"></span></a>
+                                        <div class="overlay-new">
+                                            <header class="clearfix"> 
+                                                <hgroup>
+
+                                                    <h2>Neue Kategorie anlegen</h2>
+                                                </hgroup>
+                                            </header>
+                                            <section>
+
+                                                <form action="" method="post" {{ form_enctype(form) }} class="form">
+                                                    {{ form_errors(form) }}
+                                                    <div class="clearfix">
+                                                        {{ form_label(form.name) }}
+                                                        {{ form_errors(form.name) }}
+                                                        {{ form_widget(form.name) }}
+                                                    </div>
+                                                    <div class="clearfix">
+                                                        {{ form_label(form.description) }}
+                                                        {{ form_errors(form.description) }}
+                                                        {{ form_widget(form.description) }}
+                                                    </div>
+                                                    {{ form_rest(form) }}
+                                                    <div class="action clearfix">
+                                                        <button type="submit" class="button button-gray fl">Neue Kategorie anlegen</button>
+                                                    </div>
+                                                </form>
+
+                                            </section>
+                                        </div> 
+                                    </li>
+                                </ul>
+                                    <h2>Basiskategorien</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Beschreibung</th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Beschreibung</th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                            <th style="width: 55px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if categories %}
+                                        {% for cat in categories %}
+                                        <tr id="{{ cat.id }}">
+                                                <td>{{ cat.name }}</td>
+                                                <td>{{ cat.shortDescription }}</td>
+                                                <td><a href="" class="confirm-message" onclick="setCatId('{{ cat.id }}')"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href="{{path('LadensiaAdminBundle_cat_modify', {'cat_id': cat.id }) }}"><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                                <td><a class="view-details" href="#{{ cat.id }}"><img src="{{ asset('images/icons/zoom.png') }}" alt="edit" /></a>
+                                                    <div class="overlay-details">
+                                                        <header class="clearfix"> 
+                                                            <hgroup>
+                                                                <h2>Name: {{ cat.name }}</h2>
+                                                            </hgroup>
+                                                            </header>
+                                                            <section>
+                                                                <h6 class="bold">Beschreibung: </h6>
+                                                                <p>{{ cat.description }}</p>
+                                                                
+                                                            </section>
+                                                        </div>
+                                                </td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5" align="center">Keine Kategorien vorhanden</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                    
+                                </table>
+                                <div id="dialog-confirm" title="Kategorie löschen?" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Diese Kategorie wird dauerhaft gelöscht. Sind Sie sicher?</p>
+                                </div>
+
+                                <div id="dialog-success" title="Kategorie gelöscht" style="display: none;">
+                                        <p><span class="ui-icon ui-icon-info" style="float:left; margin:0 7px 20px 0;"></span>Die Kategorie wurde erfolgreich gelöscht.</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    
+                    <!-- End Forms Section -->
+            {% endblock %}
+

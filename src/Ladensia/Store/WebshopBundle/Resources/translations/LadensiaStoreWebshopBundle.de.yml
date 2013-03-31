@@ -1,0 +1,32 @@
+# Shopping
+shopping:
+    cart: Warenkorb
+    account: Account
+
+product:
+    featured: Produkt Empfehlungen
+    price: Preis
+    details: Details
+    buy: Bestellen
+    new: Neu im Sortiment
+    all_categories: Alle Kategorien
+    
+news:
+    category: Kategorie
+    heading: News
+    createdAt: "Veröffentlicht am:"
+    no: Derzeit sind keine News vorhanden.
+    more: weiter lesen...
+
+law:
+    copyright: Alle Rechte vorbehalten.
+    
+clients:
+    login: Kunden Anmeldung
+    username: Username
+    password: Passwort
+
+sites:
+    home: Home
+
+currency: €

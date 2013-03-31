@@ -1,0 +1,3 @@
+LadensiaStoreWebshopBundle_homepage:
+    pattern:  /start
+    defaults: { _controller: LadensiaStoreWebshopBundle:Default:index }

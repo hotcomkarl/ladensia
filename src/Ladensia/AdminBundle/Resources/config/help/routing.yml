@@ -1,0 +1,3 @@
+LadensiaAdminBundle_help:
+    pattern:  /help
+    defaults: { _controller: LadensiaAdminBundle:Help\Default:index }

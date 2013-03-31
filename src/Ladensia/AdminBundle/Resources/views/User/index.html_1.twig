@@ -1,0 +1,395 @@
+{% extends 'LadensiaAdminBundle:Default:index.html.twig' %}
+
+{% block content %}
+                <!-- Main Section -->
+                <section class="main-section grid_10">
+
+                    
+                    <div class="main-content grid_3 alpha">
+                        <header><h2>Shop Konfiguration</h2></header>
+                        <section class="accordion clearfix">
+							<header class="current"><h2>Firma</h2></header>
+                            <section style="display:block">
+							<ul class="navigation">
+							<li><a href="#grunddaten" class="grunddaten">Grundeinstellungen</a></li>
+							
+							<li><a href="#serververwalten" class="serververwalten">Server verwalten</a></li>
+							<li><a href="#zahlarten" class="zahlarten">Zahlungsarten</a></li>
+							<li><a href="#abteilungen" class="abteilungen">Abteilungen</a></li>
+							<li><a href="#statistiken" class="statistiken">Statistiken/Reporte</a></li>
+							</ul>
+                            </section>
+							
+                            <header><h2>Nachrichten</h2></header>
+                            <section>
+							<ul>
+							<li><a href="forms.html">E-Mail Vorlagen</a></li>
+							<li><a href="anzeige.html">Postfach Einstellungen</a></li>
+							
+							</ul>
+                                  </section>
+								  
+							<header><h2>Kunden</h2></header>
+                            <section>
+							<ul>
+							<li><a href="#">Kunden verwalten</a></li><!-- Alle anzeigen, neu anlegen, �ndern, l�schen-->
+							<li><a href="#">Rundmail</a></li>
+							<li><a href="#">K�ndigungen</a></li>
+							<li><a href="#">Wiederverk�ufer</a></li>
+							</ul>
+                            </section>
+
+                            <header><h2>Mitarbeiter/Admin-User</h2></header>
+                            <section>
+							<ul class="navigation2">
+                                                        <li><a href="#usergruppen" class="usergruppen">User Gruppen</a></li>
+							<li><a href="#">Zeiterfassung</a></li>
+							<li><a href="#">Provision</a></li>
+							<li><a href="#">Statistik</a></li>
+							</ul>
+                            </section>
+                            
+                            <header><h2>Rechnungsverwaltung</h2></header>
+                            <section>
+							<ul>
+							<li><a href="#">Zeiterfassung</a></li>
+							<li><a href="#">Provision</a></li>
+							<li><a href="#">Statistik</a></li>
+							</ul>
+                            </section>
+
+                        </section>
+                    </div>
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <h2>Kategorien</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Registriert am</th>
+                                            <th>Letzter Login</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Registriert am</th>
+                                            <th>Letzter Login</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                    {% if users %}
+                                        {% for user in users %}
+                                        <tr>
+                                                <td>{{ user.name }}</td>
+                                                <td>{{ user.registerDate|date("m/d/Y") }}</td>
+                                                <td>{{ user.lastLogin|date("m/d/Y") }}</td>
+                                                <td><a href="javascript:deleteCategory({{ user.id }});"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href=""><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="5" align="center">Keine User vorhanden</td>
+                                        </tr>
+                                    {% endif %}
+                                    </tbody>
+                                    
+                                </table>
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+
+                    <!-- Forms Section -->
+                    <div id="usergruppen" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="add"></span>Speichern</a></li>
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="delete"></span>Löschen</a></li>
+                                </ul>
+                                <h2>User Gruppen</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form class="form">
+                                    <div class="clearfix">
+                                        <label>Gruppenname <em>*</em><small>z.B. Reseller</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Rabatt <em>*</em><small>Rabatt auf Produkte</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Layout<small>gesondertes Design anzeigen</small></label><select><option>Layout1</option><option>Layout2</option><option>Layout3</option></select>
+                                    </div>
+
+
+                                    <div class="action clearfix">
+                                        <button class="button button-gray" type="submit"><span class="accept"></span>OK</button>
+                                        <button class="button button-gray" type="reset">Reset</button>
+                                    </div>
+                                </form>
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+
+                    <!-- Forms Section -->
+                    <div id="serververwalten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a class="modalInput button button-blue" href="#serveranzeigen"><span class="add"></span>Server Anzeigen</a></li>
+
+                                </ul>
+                                <h2>Serververwalten</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form class="form">
+                                    <div class="clearfix">
+                                        <label>Servername <em>*</em><small>Internerner Servername</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Hostname <em>*</em><small>z.B. localhost</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>IP Adresse <em>*</em><small>z.B. 192.168.123.15</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Monatliche Miete <em>*</em><small>Kosten für Ihren Server</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Datencenter <em>*</em><small>Wo steht Ihr Server</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>User <em>*</em><small>Max. Anzahl User begrenzen</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Software<small>Installierte Software</small></label><select><option>cPanel</option><option>Plesk</option><option>Kloxo</option></select>
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Login <em>*</em><small>Server Login Name</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Passwort <em>*</em><small>Login Passwort</small></label><input type="password" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>SSL <em>*</em><small>Verbindung nur per SSL</small></label><input type="checkbox" name="name" required="required" />
+                                    </div>
+
+
+                                    <div class="action clearfix">
+                                        <button class="button button-gray" type="submit"><span class="accept"></span>OK</button>
+                                        <button class="button button-gray" type="reset">Reset</button>
+                                    </div>
+                                </form>
+
+                            </section>
+                        </div>
+                    </div>
+
+                    <!--Server anzeigen-->
+                    <div id="serveranzeigen" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr" id="navi">
+                                    <li><a class="modalInput button button-blue" href="#serververwalten"><span class="add"></span>Server anlegen</a></li>
+
+                                </ul>
+                                <h2>Serververwalten</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="datatable tablesort selectable paginate full">
+                                    <thead>
+                                        <tr>
+                                            <th>Servername</th>
+                                            <th>IP</th>
+                                            <th>Accounts</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Servername</th>
+                                            <th>IP</th>
+                                            <th>Accounts</th>
+                                            <th style="width: 80px"></th>
+                                            <th style="width: 80px"></th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Turbo Boost</td>
+                                            <td>192.168.123.45</td>
+                                            <td>25/2000</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Turbo Boost</td>
+                                            <td>192.168.123.45</td>
+                                            <td>25/2000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+
+                    </div>
+                    <!-- End Forms Section -->
+
+                    <!-- Forms Section -->
+                    <div id="zahlarten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="add"></span>Speichern</a></li>
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="delete"></span>Löschen</a></li>
+                                </ul>
+                                <h2>Zahlungsarten</h2>
+                            </header>
+                            <section class="clearfix">
+                                <ul class="tabs">
+                                    <li><a href="#">Paypal</a></li>
+
+                                    <li><a href="#">Vorkasse</a></li>
+                                    <li><a href="#">Abbuchung</a></li>
+                                    <li><a href="#">Kreditkarte</a></li>
+                                </ul>
+
+                                <!-- tab "panes" -->
+                                <div class="panes clearfix">
+                                    <section>
+                                        <form class="form">
+                                            <div class="clearfix">
+                                                <label>Aufschlag <em>*</em><small>Aufschlag auf Produktpreis</small></label><input type="text" name="name" required="required" />
+                                            </div>
+
+                                            <div class="clearfix">
+                                                <label>E-Mail Adresse <em>*</em><small>Paypal E-Mail Adresse</small></label><input type="email" required="required" />
+                                            </div>
+                                            <div class="clearfix">
+                                                <label>Anschrift<em>*</em><small>Firmenadresse</small></label><textarea></textarea>
+                                            </div>
+                                            <div class="clearfix">
+                                                <label>Layout Kunden<small>Design Frontend</small></label><select><option>Layout1</option><option>Layout2</option><option>Layout3</option></select>
+                                            </div>
+                                            <div class="clearfix">
+                                                <label>Layout Admin<small>Design Backend</small></label><select><option>Layout1</option><option>Layout2</option><option>Layout3</option></select>
+                                            </div>
+
+                                            <div class="action clearfix">
+                                                <button class="button button-gray" type="submit"><span class="accept"></span>OK</button>
+                                                <button class="button button-gray" type="reset">Reset</button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                    <section>Second tab content</section>
+                                    <section>Third tab content</section>
+                                    <section>Third tab content</section>
+                                </div>
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+
+                    <!-- Forms Section -->
+                    <div id="abteilungen" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="add"></span>Speichern</a></li>
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="delete"></span>Löschen</a></li>
+                                </ul>
+                                <h2>Abteilungen</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form class="form">
+                                    <div class="clearfix">
+                                        <label>Abteilungsname <em>*</em><small>Firmenname mit Bezeichnung</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Website <em>*</em><small>Firmen URL</small></label><input type="text" name="name" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>E-Mail Adresse <em>*</em><small>Primäre E-Mail Adresse</small></label><input type="email" required="required" />
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Anschrift<em>*</em><small>Firmenadresse</small></label><textarea></textarea>
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Layout Kunden<small>Design Frontend</small></label><select><option>Layout1</option><option>Layout2</option><option>Layout3</option></select>
+                                    </div>
+                                    <div class="clearfix">
+                                        <label>Layout Admin<small>Design Backend</small></label><select><option>Layout1</option><option>Layout2</option><option>Layout3</option></select>
+                                    </div>
+
+                                    <div class="action clearfix">
+                                        <button class="button button-gray" type="submit"><span class="accept"></span>OK</button>
+                                        <button class="button button-gray" type="reset">Reset</button>
+                                    </div>
+                                </form>
+
+                            </section>
+                        </div>
+                    </div>
+                    <!-- End Forms Section -->
+
+                    <!-- Forms Section -->
+                    <div id="statistiken" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                <ul class="action-buttons clearfix fr">
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="add"></span>Statistik hinzufügen</a></li>
+                                    <li><a class="modalInput button button-blue" rel="#simpledialog"><span class="delete"></span>Statistik entfernen</a></li>
+                                </ul>
+                                <h2>Statistiken/Reporte</h2>
+                            </header>
+                            <section class="clearfix">
+                                <table class="simple full">
+                                    <tr>
+                                        <td style="width: 30%">Offene Tickets</td><td style="width: 10%" class="ar">20/100</td><td style="width: 60%"><div class="progress progress-red"><span style="width: 20%"><b>20%</b></span></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30%">Offene Rechnungen</td><td style="width: 10%" class="ar">20/100</td><td style="width: 60%"><div class="progress progress-red"><span style="width: 20%"><b>20%</b></span></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Endkunden</td><td class="ar">40/100</td><td><div class="progress progress-orange"><span style="width: 40%"><b>40%</b></span></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Reseller</td><td class="ar">60/100</td><td><div class="progress progress-blue"><span style="width: 60%"><b>60%</b></span></div></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Bestellungen</td><td class="ar">80/100</td><td><div class="progress progress-green"><span style="width: 80%"><b>80%</b></span></div></td>
+
+                                    </tr>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                </section>
+
+                <!-- Main Section End -->
+{% endblock %}

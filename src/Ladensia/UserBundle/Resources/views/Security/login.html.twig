@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('/css/reset.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/grid.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/messages.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/forms.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('/css/jquery-ui.custom.css') }}" type="text/css" rel="stylesheet" />
+    <!--[if lt IE 8]>
+        <link href="{{ asset('/css/ie.css') }}" type="text/css" rel="stylesheet" />
+    <![endif]-->
+{% endblock %}
+
+{% block body %}
+<div class="login-box main-content">
+      <header>
+          <ul class="action-buttons clearfix fr">
+              <li><a href="#" class="button button-gray">Registrieren</a></li>
+              <li><a href="#" class="button button-gray"><span class="help"></span>Passwort vergessen</a></li>
+          </ul>
+          <h2>Ladensia Admin Panel</h2>
+      </header>
+    	<section>
+                {% if error %}
+    		<div class="message notice">
+                        <div>{{ error }}</div>
+                </div>
+                {% endif %}
+                    <form action="{{ path("fos_user_security_check") }}" method="post" id="form" class="clearfix">
+                        <p>
+                            <button class="large button button-gray fr" type="submit" style="padding: 6px 16px;">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="large" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" style="width: 200px; float: left; margin-right: 10px" />
+                            <input type="password" id="password" name="_password" class="large" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" style="width: 200px; float: left;" />
+                        </p>
+
+                        <p class="clearfix">
+				<span class="fl">
+                                        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" style="float: left" />
+				</span>
+			</p>
+
+
+                        
+                    </form>
+{% endblock %}

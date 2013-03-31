@@ -1,0 +1,8 @@
+LadensiaAdminBundle_start:
+    pattern:  /
+    defaults: { _controller: LadensiaAdminBundle:Dashboard\Default:index }
+
+#Addons
+LadensiaAdminBundle_link_list:
+    pattern:  /link_list
+    defaults: { _controller: LadensiaAdminBundle:Dashboard\Addon:addLink }

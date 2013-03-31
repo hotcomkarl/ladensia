@@ -1,0 +1,15 @@
+LadensiaStoreCheckoutBundle_homepage:
+    pattern:  /marketing
+    defaults: { _controller: LadensiaStoreCheckoutBundle:Default:index }
+
+LadensiaStoreCheckoutBundle_step_one:
+    pattern:  /checkout/step_one
+    defaults: { _controller: LadensiaStoreCheckoutBundle:Default:stepOne }
+
+LadensiaStoreCheckoutBundle_select_payment:
+    pattern:  /checkout/select_payment
+    defaults: { _controller: LadensiaStoreCheckoutBundle:Default:selectPayment }
+
+LadensiaStoreCheckoutBundle_login:
+    pattern:  /checkout/login
+    defaults: { _controller: LadensiaStoreCheckoutBundle:Default:login }

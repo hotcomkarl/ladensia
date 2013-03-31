@@ -1,0 +1,36 @@
+{% extends 'LadensiaAdminBundle:Sale:index.html.twig' %}
+
+                    {% block sale_content %}
+                    <!-- Forms Section -->
+                    <div id="grunddaten" class="site">
+                        <div class="main-content grid_7 omega">
+                            <header>
+                                    <h2>Kategorie ändern</h2>
+                            </header>
+                            <section class="clearfix">
+                                <form action="" method="post" {{ form_enctype(form) }} class="form">
+                                    {{ form_errors(form) }}
+                                    <div class="clearfix">
+                                        {{ form_label(form.name) }}
+                                        {{ form_errors(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        {{ form_label(form.description) }}
+                                        {{ form_errors(form.description) }}
+                                        {{ form_widget(form.description) }}
+                                    </div>
+                                    {{ form_rest(form) }}
+
+                                    <div class="action clearfix">
+                                        <button type="submit" class="button button-gray flt_l">Kategorie ändern</button>
+                                    </div>
+                                 </form>                                                   
+                            </section>
+                        </div>
+                    </div>
+
+                    
+                    <!-- End Forms Section -->
+            {% endblock %}
+

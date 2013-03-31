@@ -1,0 +1,37 @@
+LadensiaAdminBundle_cms:
+    pattern:  /cms
+    defaults: { _controller: LadensiaAdminBundle:Cms\Default:index }
+
+#Seiten
+LadensiaAdminBundle_sites:
+    pattern:  /sites
+    defaults: { _controller: LadensiaAdminBundle:Cms\Sites:list }
+
+LadensiaAdminBundle_add_site:
+    pattern:  /add_site
+    defaults: { _controller: LadensiaAdminBundle:Cms\Sites:add }
+
+LadensiaAdminBundle_delete_site:
+    pattern:  /delete_site/{site_id}/
+    defaults: { _controller: LadensiaAdminBundle:Cms\Sites:delete }
+
+LadensiaAdminBundle_site_modify:
+    pattern:  /modify_site/{siteId}/
+    defaults: { _controller: LadensiaAdminBundle:Cms\Sites:modify }
+
+#News
+LadensiaAdminBundle_news:
+    pattern:  /news
+    defaults: { _controller: LadensiaAdminBundle:Cms\News:list }
+
+LadensiaAdminBundle_add_news:
+    pattern:  /add_news
+    defaults: { _controller: LadensiaAdminBundle:Cms\News:add }
+
+LadensiaAdminBundle_delete_news:
+    pattern:  /delete_news/{posting_id}/
+    defaults: { _controller: LadensiaAdminBundle:Cms\News:delete }
+
+LadensiaAdminBundle_edit_news:
+    pattern:  /modify_news/{postingId}/
+    defaults: { _controller: LadensiaAdminBundle:Cms\News:modify }

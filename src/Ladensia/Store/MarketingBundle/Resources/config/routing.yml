@@ -1,0 +1,3 @@
+LadensiaStoreMarketingBundle_homepage:
+    pattern:  /marketing
+    defaults: { _controller: LadensiaStoreMarketingBundle:Default:index }
