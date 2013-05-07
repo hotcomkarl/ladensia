@@ -107,11 +107,6 @@ services:
         arguments:
             container: "@service_container"
             em: "@doctrine.orm.entity_manager"
-            
-    xmlapi.service:
-        class: Ladensia\CoreBundle\Services\XmlApiService
-        arguments:
-            container: "@service_container"
 
     debug.twig.extension:
         class: Twig_Extensions_Extension_Debug
