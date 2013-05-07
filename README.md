@@ -16,13 +16,19 @@ using Ladensia Shop System.
 
 The following Folders must be writeable:
 
-app/cache
-app/logs
-web/uploads
+- app/cache
+- app/logs
+- web/uploads
 
 If you don't have installed Composer read the Instructions on this Site:
 
 http://getcomposer.org/ 
+
+Install the vendors:
+
+ curl -s http://getcomposer.org/installer | php
+
+ php composer.phar install
 
 You need to change the database parameters in app/config/parameters.ini so
 the application can connect to your database.
@@ -52,3 +58,12 @@ https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/comm
 - php mod rewrite extension
 - php gd2 extension
 - php imagick extension
+
+3. Images - Shop Frontend
+-------------------------
+
+Homepage
+![](http://ladensia.de/img/demo1.png)
+
+Product Details
+![](http://ladensia.de/img/demo5.png)
