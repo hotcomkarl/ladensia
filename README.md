@@ -5,7 +5,7 @@ An E-Commerce Project based on Symfony2.
 
 You can see a demo of Ladensia Shop on http://demo.ladensia.de
 
-Please notice that not all Bundles of this Application are fully functional, tested and 
+Please notice that not all Bundles of this Application are not fully functional, tested and 
 still in development. And shouldn't be used in a productiv enviroment without modification and/or testing.
 
 This document contains information on how to install and start
