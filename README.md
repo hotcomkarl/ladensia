@@ -11,6 +11,10 @@ still in development. And shouldn't be used in a productiv enviroment without mo
 This document contains information on how to install and start
 using Ladensia Shop System. 
 
+## [Help the project](http://pledgie.com/campaigns/20121)
+
+[![Help the project](http://www.pledgie.com/campaigns/20121.png?skin_name=chrome)](http://pledgie.com/campaigns/20121)
+
 1. Installation
 ---------------
 
