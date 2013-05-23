@@ -80,11 +80,6 @@ jms_security_extra:
 # my services
 
 services:
-    my.common.service:
-        class: Ladensia\AdminBundle\Services\CommonController
-        arguments:
-            container: "@service_container"
-            
     image.service:
         class: Ladensia\CoreBundle\Services\ImageService
         arguments:
