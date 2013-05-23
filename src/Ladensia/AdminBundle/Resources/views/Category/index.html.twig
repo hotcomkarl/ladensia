@@ -67,9 +67,9 @@
                                         <tr id="{{ cat.id }}">
                                                 <td>{{ cat.name }}</td>
                                                 <td>{{ cat.shortDescription }}</td>
-                                                <td><a href="" class="confirm-message" onclick="setCatId('{{ cat.id }}')"><img src="{{ asset('images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
-                                                <td><a href="{{path('LadensiaAdminBundle_cat_modify', {'cat_id': cat.id }) }}"><img src="{{ asset('images/icons/pencil.png') }}" alt="edit" /></a></td>
-                                                <td><a class="view-details" href="#{{ cat.id }}"><img src="{{ asset('images/icons/zoom.png') }}" alt="edit" /></a>
+                                                <td><a href="" class="confirm-message" onclick="setCatId('{{ cat.id }}')"><img src="{{ asset('admin/images/icons/delete.png') }}" alt="delete" class="cat_del" /></a></td>
+                                                <td><a href="{{path('LadensiaAdminBundle_cat_modify', {'cat_id': cat.id }) }}"><img src="{{ asset('admin/images/icons/pencil.png') }}" alt="edit" /></a></td>
+                                                <td><a class="view-details" href="#{{ cat.id }}"><img src="{{ asset('admin/images/icons/zoom.png') }}" alt="edit" /></a>
                                                     <div class="overlay-details">
                                                         <header class="clearfix"> 
                                                             <hgroup>

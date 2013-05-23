@@ -3,7 +3,11 @@ ladensia
 
 An E-Commerce Project based on Symfony2.
 
-You can see a demo of Ladensia Shop on http://demo.ladensia.de
+You can see a Frontend Demo of Ladensia Shop on http://demo.ladensia.de you can see the Backend here:
+http://demo.ladensia.de/admin
+
+Login: admin
+Password: admin
 
 Please notice that not all Bundles of this Application are not fully functional, tested and 
 still in development. And shouldn't be used in a productiv enviroment without modification and/or testing.
